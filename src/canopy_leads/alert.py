@@ -4,10 +4,10 @@ Pulls Local Storm Reports for the county's NWS offices from the Iowa Environment
 archive, keeps the ones that damage trees and grounds, and lists every property in
 output/alert_points.csv within --km of a report, highest-priority and highest-score first.
 
-    tgtm alert my-list                       # last 7 days
-    tgtm alert my-list --days 14 --km 3
-    tgtm alert my-list --start 2024-05-16 --end 2024-05-18   # replay a past storm
-    tgtm alert my-list --reports saved.csv                    # offline / demo
+    canopy-leads alert my-list                       # last 7 days
+    canopy-leads alert my-list --days 14 --km 3
+    canopy-leads alert my-list --start 2024-05-16 --end 2024-05-18   # replay a past storm
+    canopy-leads alert my-list --reports saved.csv                    # offline / demo
 
 Writes output/alerts/alerts_<date>.csv (one row per account) and alerts_<date>_sites.csv, and
 appends new hits to output/alerts/alert_log.csv so a report/property pair is logged once.

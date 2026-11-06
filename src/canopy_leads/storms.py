@@ -87,7 +87,7 @@ def storms(p):
     for ev in events:
         path = p.raw / "storms" / f"{slug(ev['name'])}.csv"
         if not path.exists():
-            log(f"missing {path.relative_to(p.dir)} — run: tgtm fetch <project> --what storms")
+            log(f"missing {path.relative_to(p.dir)} — run: canopy-leads fetch <project> --what storms")
             continue
         d = read_lsr(path)
         s, extra = score_event(ev, d, lat, lon, p.county.get("bbox"))

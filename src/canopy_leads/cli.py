@@ -1,12 +1,12 @@
-"""tgtm: build a ranked account list from a county tax roll.
+"""canopy-leads: build a ranked account list from a county tax roll.
 
-  tgtm demo  runs/demo                                   # synthetic county, offline, ~1 minute
-  tgtm init  runs/harris --county harris_tx --trade tree_care
-  tgtm fetch runs/harris                                 # roll, canopy, storm reports
-  tgtm run   runs/harris                                 # every step below, in order
-  tgtm normalize | classify | canopy | rollup | storms | score | export  runs/harris
-  tgtm shortlist runs/harris --tiers A B                 # contact research list + credit estimate
-  tgtm alert runs/harris --days 7                        # weekly storm-damage alert
+  canopy-leads demo  runs/demo                                   # synthetic county, offline, ~1 minute
+  canopy-leads init  runs/harris --county harris_tx --trade tree_care
+  canopy-leads fetch runs/harris                                 # roll, canopy, storm reports
+  canopy-leads run   runs/harris                                 # every step below, in order
+  canopy-leads normalize | classify | canopy | rollup | storms | score | export  runs/harris
+  canopy-leads shortlist runs/harris --tiers A B                 # contact research list + credit estimate
+  canopy-leads alert runs/harris --days 7                        # weekly storm-damage alert
 """
 import argparse
 import shutil
@@ -43,7 +43,7 @@ def step(name, p):
 
 
 def main(argv=None):
-    ap = argparse.ArgumentParser(prog="tgtm", description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
+    ap = argparse.ArgumentParser(prog="canopy-leads", description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
     sub = ap.add_subparsers(dest="cmd", required=True)
     s = sub.add_parser("init", help="create a project folder with editable county and trade configs")
     s.add_argument("project")
@@ -80,12 +80,12 @@ def main(argv=None):
         print("trades:  ", ", ".join(pj.builtin("trades")))
     elif a.cmd == "init":
         d = pj.init_project(a.project, a.county, a.trade, a.force)
-        print(f"\nNext: review {d / 'county.yaml'}, then  tgtm fetch {a.project}  and  tgtm run {a.project}")
+        print(f"\nNext: review {d / 'county.yaml'}, then  canopy-leads fetch {a.project}  and  canopy-leads run {a.project}")
     elif a.cmd == "fetch":
         from .fetch import run
         p = pj.Project(a.project)
         if p.county.get("demo"):
-            sys.exit("The demo county has no downloads: run  tgtm demo  instead.")
+            sys.exit("The demo county has no downloads: run  canopy-leads demo  instead.")
         run(p, a.what, a.force)
     elif a.cmd == "run":
         p = pj.Project(a.project)

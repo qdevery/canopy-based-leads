@@ -1,14 +1,14 @@
 ---
 name: storm-alerts
-description: Check which accounts on a territory-gtm list had a property near a new National Weather Service storm-damage report, replay a past storm, or set up a weekly storm alert. Use after a storm, on a weekly schedule, or when asked which accounts were hit.
+description: Check which accounts on a canopy-based-leads list had a property near a new National Weather Service storm-damage report, replay a past storm, or set up a weekly storm alert. Use after a storm, on a weekly schedule, or when asked which accounts were hit.
 ---
 
 # Storm alerts
 
 ```bash
-tgtm alert runs/<county>                 # last 7 days
-tgtm alert runs/<county> --days 14 --km 3
-tgtm alert runs/<county> --start 2024-05-16 --end 2024-05-18   # replay a past storm
+canopy-leads alert runs/<county>                 # last 7 days
+canopy-leads alert runs/<county> --days 14 --km 3
+canopy-leads alert runs/<county> --start 2024-05-16 --end 2024-05-18   # replay a past storm
 ```
 
 Reports come from NWS Local Storm Reports for the county's offices (`nws_offices` in

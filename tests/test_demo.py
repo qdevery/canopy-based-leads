@@ -6,7 +6,7 @@ from pathlib import Path
 
 import pandas as pd
 
-from territory_gtm.cli import main
+from canopy_leads.cli import main
 
 ROOT = Path(__file__).resolve().parents[1]
 

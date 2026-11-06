@@ -1,11 +1,11 @@
 ---
 name: find-contacts
-description: Find business contacts (named buyers, work emails, office lines) for the top accounts of a territory-gtm list using Apollo and/or Clay, cheapest first, behind a credit gate that states the record count and estimated cost and waits for approval. Use after a territory list is built, or when asked to enrich, find decision makers or add contacts to the list.
+description: Find business contacts (named buyers, work emails, office lines) for the top accounts of a canopy-based-leads list using Apollo and/or Clay, cheapest first, behind a credit gate that states the record count and estimated cost and waits for approval. Use after a territory list is built, or when asked to enrich, find decision makers or add contacts to the list.
 ---
 
 # Find contacts, cheapest first, behind a credit gate
 
-Output is one file: `contacts.csv` in the project folder. `tgtm export` merges it into the
+Output is one file: `contacts.csv` in the project folder. `canopy-leads export` merges it into the
 workbook (best contact per account), the call sheet and the Clay people table.
 
 ## Rules that never bend
@@ -16,7 +16,7 @@ workbook (best contact per account), the call sheet and the Clay people table.
   The plugin's hook will also ask before credit-spending tools run; that prompt is a second
   check, not a substitute for telling the user first.
 - **Business contacts only.** Work emails and business / office phones. Drop personal
-  addresses (gmail, yahoo...), personal cells and home addresses. `tgtm export` drops free-mail
+  addresses (gmail, yahoo...), personal cells and home addresses. `canopy-leads export` drops free-mail
   addresses automatically. No skip tracing.
 - **No volunteers.** Never look up HOA board members, church volunteers or other private
   individuals. Self-managed associations get their public website / contact form and the
@@ -27,7 +27,7 @@ workbook (best contact per account), the call sheet and the Clay people table.
 
 ## Steps
 
-1. **Shortlist (free).** `tgtm shortlist runs/<county> --tiers A` (add `B` if the user wants
+1. **Shortlist (free).** `canopy-leads shortlist runs/<county> --tiers A` (add `B` if the user wants
    more). It writes `output/contacts/shortlist.csv` and prints an upper-bound estimate.
    Segments with `people_search: false` in `trade.yaml` are excluded by rule.
 2. **Match companies (free).** Use Apollo's organization search / lookup to find each
@@ -47,7 +47,7 @@ workbook (best contact per account), the call sheet and the Clay people table.
 7. **Free public sources.** For remaining tier-A gaps, the organization's own website
    (facilities / leadership / contact pages), state facility directories and district
    websites. Office lines and role mailboxes are fine; mark them `contact_type: Office line`.
-8. Write `contacts.csv`, run `tgtm export runs/<county>`, and summarize: contacts found per
+8. Write `contacts.csv`, run `canopy-leads export runs/<county>`, and summarize: contacts found per
    segment, accounts still missing one, credits used per tool.
 
 ## contacts.csv columns

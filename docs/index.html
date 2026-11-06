@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>territory-gtm · Setup guide</title>
+<title>canopy-based-leads · Setup guide</title>
 <meta name="description" content="Turn a county tax roll into a ranked account list for a field-service company with Claude Code and free public data. Setup and how-to guide.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -170,9 +170,9 @@ footer .wrap{display:flex;flex-wrap:wrap;gap:16px;justify-content:space-between}
 <body>
 <header class="bar">
   <div class="wrap">
-    <a class="brand" href="#top" aria-label="territory-gtm home">
+    <a class="brand" href="#top" aria-label="canopy-based-leads home">
       <svg width="26" height="26" viewBox="0 0 32 32" aria-hidden="true"><circle cx="16" cy="13" r="10" fill="#2E6B40"/><circle cx="11" cy="15" r="6" fill="#3F8A55"/><rect x="14.5" y="19" width="3" height="10" rx="1" fill="#5B4A2E"/></svg>
-      territory-gtm
+      canopy-based-leads
     </a>
     <nav aria-label="Sections">
       <a href="#start">Quick start</a><a href="#how">How it works</a><a href="#build">Build a county</a>
@@ -182,7 +182,7 @@ footer .wrap{display:flex;flex-wrap:wrap;gap:16px;justify-content:space-between}
     <button class="icon-btn" id="theme" type="button" aria-label="Toggle dark mode" title="Toggle dark mode">
       <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg>
     </button>
-    <a class="icon-btn" href="https://github.com/qdevery/territory-gtm" aria-label="GitHub repository">
+    <a class="icon-btn" href="https://github.com/qdevery/canopy-based-leads" aria-label="GitHub repository">
       <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 .5a11.5 11.5 0 0 0-3.6 22.4c.6.1.8-.3.8-.6v-2c-3.2.7-3.9-1.5-3.9-1.5-.5-1.3-1.3-1.7-1.3-1.7-1-.7.1-.7.1-.7 1.2.1 1.8 1.2 1.8 1.2 1 1.8 2.8 1.3 3.5 1 .1-.8.4-1.3.7-1.6-2.6-.3-5.3-1.3-5.3-5.7 0-1.3.5-2.3 1.2-3.1-.1-.3-.5-1.5.1-3.2 0 0 1-.3 3.3 1.2a11.4 11.4 0 0 1 6 0C17.6 4.6 18.6 5 18.6 5c.6 1.7.2 2.9.1 3.2.8.8 1.2 1.8 1.2 3.1 0 4.4-2.7 5.4-5.3 5.7.4.4.8 1.1.8 2.2v3.3c0 .3.2.7.8.6A11.5 11.5 0 0 0 12 .5z"/></svg>
     </a>
   </div>
@@ -194,11 +194,11 @@ footer .wrap{display:flex;flex-wrap:wrap;gap:16px;justify-content:space-between}
   <div class="wrap">
     <div class="eyebrow">Claude Code plugin · Python · free public data</div>
     <h1>From a county tax roll to a ranked call list</h1>
-    <p class="lede">territory-gtm finds every commercial property with grounds worth servicing in a county, traces each one to the company that actually signs the contract, and scores it 0–100 with a one-line outreach angle. Built for tree care; adaptable to landscaping, roofing, paving and other field services.</p>
+    <p class="lede">canopy-based-leads finds every commercial property with grounds worth servicing in a county, traces each one to the company that actually signs the contract, and scores it 0–100 with a one-line outreach angle. Built for tree care; adaptable to landscaping, roofing, paving and other field services.</p>
     <div class="cta">
       <a class="btn primary" href="#start">Set it up in 10 minutes →</a>
-      <a class="btn ghost" href="https://github.com/qdevery/territory-gtm">View on GitHub</a>
-      <a class="btn ghost" href="https://github.com/qdevery/territory-gtm/tree/main/examples/demo_output">See sample output</a>
+      <a class="btn ghost" href="https://github.com/qdevery/canopy-based-leads">View on GitHub</a>
+      <a class="btn ghost" href="https://github.com/qdevery/canopy-based-leads/tree/main/examples/demo_output">See sample output</a>
     </div>
     <div class="funnel" role="list" aria-label="Harris County example">
       <div role="listitem"><b>1.6 M</b><span>county accounts read</span></div>
@@ -242,30 +242,30 @@ footer .wrap{display:flex;flex-wrap:wrap;gap:16px;justify-content:space-between}
     <div class="panel" role="tabpanel" id="p-plugin" aria-labelledby="t-plugin">
       <ol class="steps">
         <li><div><strong>Add the marketplace and install the plugin.</strong> In Claude Code, type:
-<pre><code>/plugin marketplace add qdevery/territory-gtm
-/plugin install territory-gtm@territory-gtm</code></pre></div></li>
+<pre><code>/plugin marketplace add qdevery/canopy-based-leads
+/plugin install canopy-leads@canopy-based-leads</code></pre></div></li>
         <li><div><strong>Open a working folder.</strong> Start Claude Code in an empty folder where your county projects will live, for example <code>~/territory</code>. Projects go in <code>runs/</code> inside it.</div></li>
         <li><div><strong>Run the demo.</strong> It builds a synthetic county end to end, offline, in about a minute, and walks you through the output. Claude sets up the Python tool the first time.
-<pre><code>/territory-gtm:demo</code></pre></div></li>
+<pre><code>/canopy-leads:demo</code></pre></div></li>
         <li><div><strong>Build a real county.</strong> Ask in plain words, or use the command:
 <p class="prompt">“Build a tree-care account list for Harris County, TX.”</p>
-<pre><code>/territory-gtm:build Harris County, TX</code></pre></div></li>
+<pre><code>/canopy-leads:build Harris County, TX</code></pre></div></li>
       </ol>
     </div>
     <div class="panel" role="tabpanel" id="p-cli" aria-labelledby="t-cli" hidden>
       <ol class="steps">
         <li><div><strong>Clone and install.</strong>
-<pre><code>git clone https://github.com/qdevery/territory-gtm
-cd territory-gtm
+<pre><code>git clone https://github.com/qdevery/canopy-based-leads
+cd canopy-based-leads
 python3 -m venv .venv &amp;&amp; source .venv/bin/activate
 pip install -e .</code></pre></div></li>
         <li><div><strong>Run the demo.</strong>
-<pre><code>tgtm demo runs/demo</code></pre>
+<pre><code>canopy-leads demo runs/demo</code></pre>
 Open <code>runs/demo/output/</code>: start with the workbook and <code>call_sheet_top50.md</code>.</div></li>
         <li><div><strong>Build a county.</strong>
-<pre><code>tgtm init  runs/harris --county harris_tx --trade tree_care
-tgtm fetch runs/harris        <span class="c"># ~650 MB from HCAD + canopy + storm reports</span>
-tgtm run   runs/harris</code></pre></div></li>
+<pre><code>canopy-leads init  runs/harris --county harris_tx --trade tree_care
+canopy-leads fetch runs/harris        <span class="c"># ~650 MB from HCAD + canopy + storm reports</span>
+canopy-leads run   runs/harris</code></pre></div></li>
         <li><div><strong>Optional: use Claude anyway.</strong> Open Claude Code in the repo folder. <code>CLAUDE.md</code> points it at the same skills, so it can review checkpoints and research contacts with you.</div></li>
       </ol>
     </div>
@@ -358,18 +358,18 @@ tgtm run   runs/harris</code></pre></div></li>
     <p class="sub">With the plugin, Claude drives these steps and pauses where your judgment matters. The commands are shown so you can run or rerun any step yourself.</p>
     <ol class="steps">
       <li><div><strong>Pick the county and trade.</strong> Bundled: <code>harris_tx</code> and the demo county; tree care. For anything else Claude writes the configs with you (see <a href="#adapt">New county / trade</a>).
-<pre><code>tgtm init runs/harris --county harris_tx --trade tree_care</code></pre></div></li>
+<pre><code>canopy-leads init runs/harris --county harris_tx --trade tree_care</code></pre></div></li>
       <li><div><strong>Download the public data.</strong> The roll and parcel outlines from the appraisal district, a tree-canopy clip from MRLC, and storm reports from the Iowa Mesonet. Claude checks each source's terms first.
-<pre><code>tgtm fetch runs/harris</code></pre></div></li>
+<pre><code>canopy-leads fetch runs/harris</code></pre></div></li>
       <li><div><strong>Checkpoint 1: is every parcel in the right bucket?</strong> Review the samples with Claude and fix the rules until they read right.
-<pre><code>tgtm normalize runs/harris &amp;&amp; tgtm classify runs/harris
+<pre><code>canopy-leads normalize runs/harris &amp;&amp; canopy-leads classify runs/harris
 <span class="c"># output/checkpoints/1_classification_counts.csv, 1_samples_by_segment.csv</span></code></pre></div></li>
       <li><div><strong>Checkpoint 2: who actually buys?</strong> Verify the biggest management firms on their own sites, add them to <code>firm_aliases.csv</code>, rerun.
-<pre><code>tgtm canopy runs/harris &amp;&amp; tgtm rollup runs/harris
+<pre><code>canopy-leads canopy runs/harris &amp;&amp; canopy-leads rollup runs/harris
 <span class="c"># output/checkpoints/2_top_buyers_by_acres.csv, 2_firm_alias_candidates.csv</span></code></pre></div></li>
       <li><div><strong>Score and export.</strong>
-<pre><code>tgtm storms runs/harris &amp;&amp; tgtm score runs/harris &amp;&amp; tgtm export runs/harris
-<span class="c"># or everything from a step on:  tgtm run runs/harris --from score</span></code></pre></div></li>
+<pre><code>canopy-leads storms runs/harris &amp;&amp; canopy-leads score runs/harris &amp;&amp; canopy-leads export runs/harris
+<span class="c"># or everything from a step on:  canopy-leads run runs/harris --from score</span></code></pre></div></li>
     </ol>
   </div>
 </section>
@@ -381,7 +381,7 @@ tgtm run   runs/harris</code></pre></div></li>
     <h2>Cheapest first, and no yes, no spend</h2>
     <p class="sub">Contacts are optional. Claude uses your own Apollo and Clay connections, starts with the free lookups, and stops for your approval before every paid batch. The result is one file, <code>contacts.csv</code>, merged into the workbook on the next export.</p>
     <div class="loop">
-      <div class="free"><b>1 · Shortlist</b>Tier-A accounts, minus segments with no people search. <code>tgtm shortlist</code></div>
+      <div class="free"><b>1 · Shortlist</b>Tier-A accounts, minus segments with no people search. <code>canopy-leads shortlist</code></div>
       <div class="free"><b>2 · Match</b>Find each account's real company and domain. Free.</div>
       <div class="free"><b>3 · Count</b>People search by buyer title returns names, no emails. Free.</div>
       <div class="gate"><b>4 · You approve</b>“N people at M accounts, about N credits.” Nothing runs until you say yes.</div>
@@ -404,10 +404,10 @@ tgtm run   runs/harris</code></pre></div></li>
         <p>Run it after a storm, replay a past one to test your pitch, or ask Claude to schedule it every Monday.</p>
       </div>
       <div>
-<pre><code>tgtm alert runs/harris                    <span class="c"># last 7 days</span>
-tgtm alert runs/harris --days 14 --km 3
-tgtm alert runs/harris --start 2024-05-16 --end 2024-05-18</code></pre>
-<pre><code>/territory-gtm:storm-alert runs/harris</code></pre>
+<pre><code>canopy-leads alert runs/harris                    <span class="c"># last 7 days</span>
+canopy-leads alert runs/harris --days 14 --km 3
+canopy-leads alert runs/harris --start 2024-05-16 --end 2024-05-18</code></pre>
+<pre><code>/canopy-leads:storm-alert runs/harris</code></pre>
       </div>
     </div>
   </div>
@@ -461,7 +461,7 @@ segments:
       <div class="rule"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 9v4M12 17h.01"/><path d="M10.3 3.9 1.8 18a2 2 0 0 0 1.7 3h17a2 2 0 0 0 1.7-3L13.7 3.9a2 2 0 0 0-3.4 0z"/></svg><div><b>Don't guess.</b> A missing value stays missing, with a suggested source to fill it.</div></div>
       <div class="rule"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 7v10M9.5 9.5c0-1.4 1.1-2 2.5-2s2.5.7 2.5 2-1.3 1.8-2.5 2.2-2.5 1-2.5 2.3 1.1 2 2.5 2 2.5-.6 2.5-2"/></svg><div><b>Ask before spending.</b> Count and estimate first; the hook asks again before any credit-spending tool runs.</div></div>
     </div>
-    <p class="note" style="margin-top:14px">The hook only acts inside a folder that holds <code>county.yaml</code> and <code>trade.yaml</code>. <code>TGTM_GUARDRAILS=always</code> applies it everywhere; <code>TGTM_ALLOW_OUTREACH=1</code> lifts the outreach block in a session where you've decided to do outreach.</p>
+    <p class="note" style="margin-top:14px">The hook only acts inside a folder that holds <code>county.yaml</code> and <code>trade.yaml</code>. <code>CANOPY_LEADS_GUARDRAILS=always</code> applies it everywhere; <code>CANOPY_LEADS_ALLOW_OUTREACH=1</code> lifts the outreach block in a session where you've decided to do outreach.</p>
   </div>
 </section>
 
@@ -507,15 +507,15 @@ pip install --no-deps -e .</code></pre></div></details>
 
 <footer>
   <div class="wrap">
-    <span>territory-gtm · MIT license · built with Claude Code</span>
-    <span><a href="https://github.com/qdevery/territory-gtm">GitHub</a> · <a href="https://github.com/qdevery/territory-gtm/issues">Issues</a> · <a href="https://github.com/qdevery/territory-gtm/tree/main/examples/demo_output">Sample output</a></span>
+    <span>canopy-based-leads · MIT license · built with Claude Code</span>
+    <span><a href="https://github.com/qdevery/canopy-based-leads">GitHub</a> · <a href="https://github.com/qdevery/canopy-based-leads/issues">Issues</a> · <a href="https://github.com/qdevery/canopy-based-leads/tree/main/examples/demo_output">Sample output</a></span>
   </div>
 </footer>
 
 <script>
 (function(){
   // theme toggle, remembered per browser
-  var root=document.documentElement, KEY='tgtm-theme';
+  var root=document.documentElement, KEY='canopy-leads-theme';
   try{var t=localStorage.getItem(KEY); if(t) root.setAttribute('data-theme',t);}catch(e){}
   document.getElementById('theme').addEventListener('click',function(){
     var dark=root.getAttribute('data-theme')==='dark'||(!root.getAttribute('data-theme')&&matchMedia('(prefers-color-scheme: dark)').matches);

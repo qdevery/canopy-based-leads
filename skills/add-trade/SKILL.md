@@ -1,11 +1,11 @@
 ---
 name: add-trade
-description: Adapt territory-gtm to another field-service trade (landscaping, roofing, paving, irrigation, pest control, pressure washing...) by writing a trade.yaml with its own segments, fit, score weights, buyer titles and outreach angles. Use when someone wants a territory list for a trade other than tree care.
+description: Adapt canopy-based-leads to another field-service trade (landscaping, roofing, paving, irrigation, pest control, pressure washing...) by writing a trade.yaml with its own segments, fit, score weights, buyer titles and outreach angles. Use when someone wants a territory list for a trade other than tree care.
 ---
 
 # Add a trade
 
-Copy `src/territory_gtm/configs/trades/tree_care.yaml` (repository root = two folders above
+Copy `src/canopy_leads/configs/trades/tree_care.yaml` (repository root = two folders above
 this skill) and change what differs. Everything about a trade lives in that one file.
 
 ## Interview the user (5 questions)
@@ -36,9 +36,9 @@ this skill) and change what differs. Everything about a trade lives in that one 
 ## Test
 
 ```bash
-tgtm init runs/<county>-<trade> --county <county> --trade path/to/trade.yaml
-tgtm run runs/<county>-<trade>
+canopy-leads init runs/<county>-<trade> --county <county> --trade path/to/trade.yaml
+canopy-leads run runs/<county>-<trade>
 ```
 
 Read the top 20 accounts and their angles with the user. If the ranking feels wrong, adjust
-`fit` and `score` and rerun from `score` (`tgtm run ... --from score`).
+`fit` and `score` and rerun from `score` (`canopy-leads run ... --from score`).

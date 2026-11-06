@@ -132,7 +132,7 @@ def licensed_facilities(p, df):
     for f in cfg["files"]:
         path = p.raw / f["path"]
         if not path.exists():
-            log(f"licensed facilities: {path.name} not found, skipped (run tgtm fetch)")
+            log(f"licensed facilities: {path.name} not found, skipped (run canopy-leads fetch)")
             continue
         if path.suffix.lower() in (".xlsx", ".xls"):
             x = pd.read_excel(path, header=f.get("header_row", 0), dtype=str)

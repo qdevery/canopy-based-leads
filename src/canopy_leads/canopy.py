@@ -42,5 +42,5 @@ def canopy(p):
         log(f"canopy measured for {out['canopy_pct'].notna().sum():,} of {len(out):,} parcels")
     else:
         out["canopy_pct"], out["canopy_px"], out["src_canopy"] = np.nan, 0, "no canopy raster (raw/canopy.tif)"
-        log("no raw/canopy.tif — canopy left blank (run: tgtm fetch <project> --what canopy)")
+        log("no raw/canopy.tif — canopy left blank (run: canopy-leads fetch <project> --what canopy)")
     out.to_parquet(p.work / "canopy.parquet", index=False)

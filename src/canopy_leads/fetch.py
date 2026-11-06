@@ -17,7 +17,7 @@ from datetime import datetime, timedelta, timezone
 
 from .project import log, slug
 
-UA = {"User-Agent": "territory-gtm/0.1 (public-data research; https://github.com/qdevery/territory-gtm)"}
+UA = {"User-Agent": "canopy-based-leads/0.1 (public-data research; https://github.com/qdevery/canopy-based-leads)"}
 WCS = ("https://www.mrlc.gov/geoserver/mrlc_download/wcs?service=WCS&version=2.0.1&request=GetCoverage"
        "&coverageId={cov}&subset=X({x0},{x1})&subset=Y({y0},{y1})&format=image/geotiff")
 TCC = "mrlc_download__nlcd_tcc_conus_2021_v2021-4"

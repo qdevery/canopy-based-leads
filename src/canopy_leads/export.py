@@ -190,7 +190,7 @@ def export(p):
             ("storm", 20, "acre-weighted storm exposure: " + "; ".join(
                 f"{e['name']} ({e.get('method')}, weight {e.get('weight', 1):g})" for e in c.get("storm_events", [])))]]
         + [("Tiers", f"A = {t.get('tiers', {}).get('A', 60)}+, B = {t.get('tiers', {}).get('B', 45)}+, C = below")]
-        + [("Built", f"{date.today().isoformat()} with territory-gtm")]
+        + [("Built", f"{date.today().isoformat()} with canopy-based-leads")]
         + [("Not done", "No emails sent, no sequences, no CRM records. No personal emails, cell phones, home "
                         "addresses or lookups of association board members.")],
         columns=["item", "detail"])

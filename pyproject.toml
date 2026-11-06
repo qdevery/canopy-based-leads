@@ -3,7 +3,7 @@ requires = ["setuptools>=68"]
 build-backend = "setuptools.build_meta"
 
 [project]
-name = "territory-gtm"
+name = "canopy-based-leads"
 version = "0.1.0"
 description = "Turn a county tax roll into a ranked B2B account list for field-service companies."
 readme = "README.md"
@@ -26,10 +26,10 @@ dependencies = [
 test = ["pytest>=7"]
 
 [project.scripts]
-tgtm = "territory_gtm.cli:main"
+canopy-leads = "canopy_leads.cli:main"
 
 [tool.setuptools.packages.find]
 where = ["src"]
 
 [tool.setuptools.package-data]
-territory_gtm = ["configs/**/*.yaml", "configs/**/*.csv"]
+canopy_leads = ["configs/**/*.yaml", "configs/**/*.csv"]

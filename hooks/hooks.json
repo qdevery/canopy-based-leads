@@ -1,5 +1,5 @@
 {
-  "description": "territory-gtm guardrails: block outreach and CRM writes, and require a confirmation before any credit-spending enrichment.",
+  "description": "canopy-based-leads guardrails: block outreach and CRM writes, and require a confirmation before any credit-spending enrichment.",
   "hooks": {
     "PreToolUse": [
       {

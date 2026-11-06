@@ -5,5 +5,5 @@ Properties (15 pts),log scale of properties per buyer; 1 property = 0
 Segment Fit (20 pts),HOA (before the managed / self-managed split) 0.80; HOA – Managed 0.95; HOA – Self-Managed 0.60; Apartments / Multifamily 0.80; Senior Living & Care 0.75; Churches & Religious Campuses 0.60; Golf Courses & Country Clubs 1.00; Other Commercial with Grounds 0.65; Utility & Special Districts 0.55
 Storm (20 pts),"acre-weighted storm exposure: Hurricane Example 2024 (gust_field, weight 0.4); Spring 2024 derecho (nearest_report, weight 0.35); Last 12 months (recent, weight 0.25)"
 Tiers,"A = 60+, B = 45+, C = below"
-Built,2026-11-06 with territory-gtm
+Built,2026-11-06 with canopy-based-leads
 Not done,"No emails sent, no sequences, no CRM records. No personal emails, cell phones, home addresses or lookups of association board members."

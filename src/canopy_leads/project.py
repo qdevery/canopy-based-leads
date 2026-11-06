@@ -42,7 +42,7 @@ class Project:
     def __init__(self, path):
         self.dir = Path(path).expanduser().resolve()
         if not (self.dir / "county.yaml").exists():
-            raise SystemExit(f"{self.dir} has no county.yaml. Run: tgtm init {path} --county <name> --trade <name>")
+            raise SystemExit(f"{self.dir} has no county.yaml. Run: canopy-leads init {path} --county <name> --trade <name>")
         self.county = load_yaml(self.dir / "county.yaml")
         self.trade = load_yaml(self.dir / "trade.yaml")
         self.raw = self.dir / "raw"

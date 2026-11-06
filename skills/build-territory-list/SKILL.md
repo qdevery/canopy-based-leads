@@ -1,14 +1,14 @@
 ---
 name: build-territory-list
-description: Build a ranked B2B account list for a field-service company (tree care, landscaping, roofing, paving...) from free public data - a county's appraisal / tax roll, tree canopy and NWS storm reports - with a score, tier and outreach angle per account. Use when someone asks to build a lead list, prospect list, account list or territory map for a county, or to run territory-gtm.
+description: Build a ranked B2B account list for a field-service company (tree care, landscaping, roofing, paving...) from free public data - a county's appraisal / tax roll, tree canopy and NWS storm reports - with a score, tier and outreach angle per account. Use when someone asks to build a lead list, prospect list, account list or territory map for a county, or to run canopy-based-leads.
 ---
 
 # Build a territory account list
 
-You run the `tgtm` pipeline for a county + trade and review each checkpoint with the user.
+You run the `canopy-leads` pipeline for a county + trade and review each checkpoint with the user.
 The pipeline is deterministic Python; your job is setup, judgment at the checkpoints, and
 explaining the results. The repository root is two folders above this skill's base directory
-(it holds `pyproject.toml`, `src/territory_gtm/` and `docs/`).
+(it holds `pyproject.toml`, `src/canopy_leads/` and `docs/`).
 
 ## Ground rules (repeat them to the user at the start, follow them throughout)
 
@@ -27,36 +27,36 @@ explaining the results. The repository root is two folders above this skill's ba
 
 ```bash
 python3 -m venv .venv && .venv/bin/pip install "<repo root>"
-.venv/bin/tgtm list
+.venv/bin/canopy-leads list
 ```
 
 Needs Python 3.10+. If `pip` fails on GDAL / rasterio, suggest `conda install -c conda-forge
 geopandas rasterio rasterstats` and then `pip install --no-deps "<repo root>"`.
-If the user has never run it, offer `tgtm demo runs/demo` first (offline, about a minute).
+If the user has never run it, offer `canopy-leads demo runs/demo` first (offline, about a minute).
 
 ## 2. Interview (keep it short)
 
-Ask only what you can't infer: the county and state, the trade (bundled: `tgtm list`), the
+Ask only what you can't infer: the county and state, the trade (bundled: `canopy-leads list`), the
 segments they care about, the minimum acreage worth a visit (default 1 acre), and whether they
 want contacts researched (and which tiers). Note the folder they want the project in.
 
 ## 3. Configure
 
-- County bundled → `tgtm init runs/<county> --county <name> --trade <trade>`.
+- County bundled → `canopy-leads init runs/<county> --county <name> --trade <trade>`.
 - County not bundled → follow the `add-county` skill to write `county.yaml` first.
 - Trade not bundled → follow the `add-trade` skill.
 - Read the copied `county.yaml` with the user: source URLs, bbox, NWS office(s), storm events.
 
 ## 4. Fetch
 
-`tgtm fetch runs/<county>` downloads the roll (often 0.5–2 GB; say how big before starting
+`canopy-leads fetch runs/<county>` downloads the roll (often 0.5–2 GB; say how big before starting
 and run it in the background), the canopy raster and the storm reports. Check each source's
 terms page once and tell the user what you found.
 
 ## 5. Checkpoint 1: classification
 
 ```bash
-tgtm normalize runs/<county> && tgtm classify runs/<county>
+canopy-leads normalize runs/<county> && canopy-leads classify runs/<county>
 ```
 
 Open `output/checkpoints/1_classification_counts.csv`, `1_samples_by_segment.csv` and
@@ -68,19 +68,19 @@ owners slipping through). Fix them in `trade.yaml` rules or `county.yaml` codes 
 ## 6. Checkpoint 2: who buys
 
 ```bash
-tgtm canopy runs/<county> && tgtm rollup runs/<county>
+canopy-leads canopy runs/<county> && canopy-leads rollup runs/<county>
 ```
 
 Review `2_top_buyers_by_acres.csv`, `2_top_buyers_by_properties.csv` and
 `2_firm_alias_candidates.csv`. For the largest management firms, check the firm's own
 website (public pages only) and add verified rows to `firm_aliases.csv` with the URL as
 `verified_source`. Flag inferred links ("confirm before use") rather than asserting them.
-Rerun `tgtm rollup`.
+Rerun `canopy-leads rollup`.
 
 ## 7. Score and export
 
 ```bash
-tgtm storms runs/<county> && tgtm score runs/<county> && tgtm export runs/<county>
+canopy-leads storms runs/<county> && canopy-leads score runs/<county> && canopy-leads export runs/<county>
 ```
 
 Report: accounts per segment, tier A / B / C counts, the top 10 with their angles, what is
@@ -91,7 +91,7 @@ missing and why (e.g. "canopy is 30 m, so small reserves have no reading"). Poin
 
 - Contacts → the `find-contacts` skill (always behind the credit gate).
 - Weekly storm-damage alerts → the `storm-alerts` skill.
-- Rerun any time with `tgtm run runs/<county> --from <step>`.
+- Rerun any time with `canopy-leads run runs/<county> --from <step>`.
 
 Keep every number traceable: each workbook column has a `src_*` column, and the Method,
 Rules and Sources tabs explain the build. Never invent a value to fill a gap.

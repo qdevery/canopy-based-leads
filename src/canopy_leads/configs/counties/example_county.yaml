@@ -1,4 +1,4 @@
-# Example County: a synthetic county for the demo (tgtm demo). Every name is invented.
+# Example County: a synthetic county for the demo (canopy-leads demo). Every name is invented.
 # It doubles as a template for the `generic` adapter, which fits most counties: one parcel
 # layer (shapefile / geodatabase / GeoPackage) whose attributes carry owner and land use.
 name: Example County, TX (synthetic)

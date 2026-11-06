@@ -1,12 +1,12 @@
 {
-  "name": "territory-gtm",
+  "name": "canopy-based-leads",
   "owner": { "name": "qdevery", "url": "https://github.com/qdevery" },
   "metadata": {
     "description": "Public-data account lists for field-service companies, built with Claude Code."
   },
   "plugins": [
     {
-      "name": "territory-gtm",
+      "name": "canopy-leads",
       "source": "./",
       "description": "Turn a county tax roll into a ranked account list with scores, outreach angles, contacts and storm alerts.",
       "version": "0.1.0",

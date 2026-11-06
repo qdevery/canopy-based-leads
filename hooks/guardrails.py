@@ -1,4 +1,4 @@
-"""PreToolUse guardrails for territory-gtm. Standard library only.
+"""PreToolUse guardrails for canopy-based-leads. Standard library only.
 
 - BLOCK anything that contacts people or writes to a CRM: sending email, adding people to
   sequences or campaigns, creating contacts / accounts / deals / tasks.
@@ -6,12 +6,12 @@
   email and phone checks, Clay data points and enrichment runs), so the count and estimated
   cost are always approved by a person first.
 
-The guardrails apply while Claude works in a territory-gtm project: the working folder (or a
+The guardrails apply while Claude works in a canopy-based-leads project: the working folder (or a
 folder above it, or one directly below it) holds county.yaml and trade.yaml. Elsewhere the
-plugin stays out of the way. TGTM_GUARDRAILS=always applies them everywhere; =off disables them.
+plugin stays out of the way. CANOPY_LEADS_GUARDRAILS=always applies them everywhere; =off disables them.
 
 The research is the product; outreach is a separate decision a person makes in their own
-tools. To allow outreach tools in a later session, set TGTM_ALLOW_OUTREACH=1. Edit the lists
+tools. To allow outreach tools in a later session, set CANOPY_LEADS_ALLOW_OUTREACH=1. Edit the lists
 below to match the tools you connect.
 """
 import json
@@ -60,29 +60,29 @@ def main():
         event = json.load(sys.stdin)
     except ValueError:
         sys.exit(0)
-    mode = os.environ.get("TGTM_GUARDRAILS", "project")
+    mode = os.environ.get("CANOPY_LEADS_GUARDRAILS", "project")
     if mode == "off" or (mode != "always" and not in_project(event.get("cwd"))):
         sys.exit(0)
     tool = event.get("tool_name", "")
-    outreach_ok = os.environ.get("TGTM_ALLOW_OUTREACH") == "1"
+    outreach_ok = os.environ.get("CANOPY_LEADS_ALLOW_OUTREACH") == "1"
     if tool == "Bash":
         cmd = str((event.get("tool_input") or {}).get("command", ""))
         if BASH_BLOCK.search(cmd) and not outreach_ok:
-            decide("deny", "territory-gtm guardrail: research and files only. Enrolling people in campaigns is "
-                           "blocked. Set TGTM_ALLOW_OUTREACH=1 in a separate session if you decide to do outreach.")
+            decide("deny", "canopy-based-leads guardrail: research and files only. Enrolling people in campaigns is "
+                           "blocked. Set CANOPY_LEADS_ALLOW_OUTREACH=1 in a separate session if you decide to do outreach.")
         if BASH_ASK.search(cmd):
-            decide("ask", "territory-gtm credit gate: this can spend Clay credits. Approve only if you have seen the "
+            decide("ask", "canopy-based-leads credit gate: this can spend Clay credits. Approve only if you have seen the "
                           "record count and the estimated cost.")
         sys.exit(0)
     if not tool.startswith("mcp__"):
         sys.exit(0)
     name = tool.split("__", 2)[-1].lower()
     if not outreach_ok and any(b in name for b in BLOCK):
-        decide("deny", f"territory-gtm guardrail: '{name}' would contact people or write to a CRM. This plugin does "
-                       "research and files only. Hand the CSVs to your team, or set TGTM_ALLOW_OUTREACH=1 in a "
+        decide("deny", f"canopy-based-leads guardrail: '{name}' would contact people or write to a CRM. This plugin does "
+                       "research and files only. Hand the CSVs to your team, or set CANOPY_LEADS_ALLOW_OUTREACH=1 in a "
                        "separate session if you decide to do outreach.")
     if any(a in name for a in ASK):
-        decide("ask", f"territory-gtm credit gate: '{name}' can spend enrichment credits. Approve only if you have "
+        decide("ask", f"canopy-based-leads credit gate: '{name}' can spend enrichment credits. Approve only if you have "
                       "seen the record count and the estimated cost for this batch.")
     sys.exit(0)
 

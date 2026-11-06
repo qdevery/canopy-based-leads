@@ -1,6 +1,6 @@
-# territory-gtm
+# canopy-based-leads
 
-Python pipeline (`src/territory_gtm/`, CLI `tgtm`) plus a Claude Code plugin (`skills/`,
+Python pipeline (`src/canopy_leads/`, CLI `canopy-leads`) plus a Claude Code plugin (`skills/`,
 `commands/`, `hooks/`, `.claude-plugin/`) that turns a county tax roll into a ranked account
 list for a field-service company.
 
@@ -12,4 +12,4 @@ list for a field-service company.
   estimate and wait for approval before any paid enrichment; never guess a missing value.
 - Projects live in `runs/` (git-ignored). Never commit raw county data, contacts or lead lists.
 - Test: `pip install -e ".[test]" && pytest` (runs the offline demo).
-- County- and trade-specific facts belong in YAML (`src/territory_gtm/configs/`), not code.
+- County- and trade-specific facts belong in YAML (`src/canopy_leads/configs/`), not code.

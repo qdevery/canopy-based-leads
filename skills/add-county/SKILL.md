@@ -1,13 +1,13 @@
 ---
 name: add-county
-description: Write a territory-gtm county.yaml for a county that isn't bundled - find the appraisal district's bulk parcel data, map its columns and local land-use / building codes to standard tags, pick the NWS office and the region's defining storms. Use when someone wants a territory list for a new county.
+description: Write a canopy-based-leads county.yaml for a county that isn't bundled - find the appraisal district's bulk parcel data, map its columns and local land-use / building codes to standard tags, pick the NWS office and the region's defining storms. Use when someone wants a territory list for a new county.
 ---
 
 # Add a county
 
 A county config tells the pipeline where the parcel data is, what its columns are called,
 and what its local codes mean. Start from the bundled examples in
-`src/territory_gtm/configs/counties/` (repository root = two folders above this skill):
+`src/canopy_leads/configs/counties/` (repository root = two folders above this skill):
 `example_county.yaml` uses the `generic` adapter, which fits most counties;
 `harris_tx.yaml` shows a district with several linked tables (its own adapter).
 
@@ -44,18 +44,18 @@ Find the code descriptions (usually a lookup table or PDF on the same site).
   county's forecast page; e.g. HGX Houston, FWD Dallas–Fort Worth, EWX Austin/San Antonio).
 - `storm_events:` one or two defining storms for the region (look at the Iowa Environmental
   Mesonet LSR archive for the office and pick events with many damage reports) plus one
-  `recent` event with `days: 365`. Methods are explained in `src/territory_gtm/storms.py`.
-- `downloads:` the direct file URLs so `tgtm fetch` can repeat the download next year.
+  `recent` event with `days: 365`. Methods are explained in `src/canopy_leads/storms.py`.
+- `downloads:` the direct file URLs so `canopy-leads fetch` can repeat the download next year.
 - `sources:` one row per source with its URL and what it's used for.
 
 ## 4. Test
 
 ```bash
-tgtm init runs/<county> --county path/to/county.yaml --trade tree_care
-tgtm fetch runs/<county> && tgtm normalize runs/<county> && tgtm classify runs/<county>
+canopy-leads init runs/<county> --county path/to/county.yaml --trade tree_care
+canopy-leads fetch runs/<county> && canopy-leads normalize runs/<county> && canopy-leads classify runs/<county>
 ```
 
 `normalize` prints the share of parcels with at least one tag; a very low share means codes
 are missing from the mapping. Review the checkpoint samples with the user before going on.
 If the county ships several linked tables that the generic adapter can't join, write a small
-adapter function in `src/territory_gtm/adapters.py` modelled on `hcad()`.
+adapter function in `src/canopy_leads/adapters.py` modelled on `hcad()`.

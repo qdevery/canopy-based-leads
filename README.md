@@ -1,4 +1,4 @@
-# territory-gtm
+# canopy-based-leads
 
 **From a county tax roll to a ranked call list.** A Claude Code plugin and a Python pipeline
 that find every commercial property with grounds worth servicing in a county, trace each one
@@ -8,7 +8,7 @@ It runs on free public data. Contacts are optional and sit behind a credit gate.
 Built for field-service companies: tree care out of the box; landscaping, roofing, paving or
 irrigation with one YAML file.
 
-**📖 Setup and how-to guide: https://qdevery.github.io/territory-gtm/**
+**📖 Setup and how-to guide: https://qdevery.github.io/canopy-based-leads/**
 
 ```
 county tax roll ─► classify ─► canopy ─► who buys ─► storms ─► score ─► workbook, call sheet, Clay import
@@ -24,23 +24,23 @@ Harris County, TX (the worked example) on a laptop: 1.6 M accounts read → 32,3
 **As a Claude Code plugin** (Claude Code desktop or CLI):
 
 ```
-/plugin marketplace add qdevery/territory-gtm
-/plugin install territory-gtm@territory-gtm
-/territory-gtm:demo
+/plugin marketplace add qdevery/canopy-based-leads
+/plugin install canopy-leads@canopy-based-leads
+/canopy-leads:demo
 ```
 
-Then ask: *"Build a tree-care account list for Harris County, TX"* or run `/territory-gtm:build Travis County, TX`.
+Then ask: *"Build a tree-care account list for Harris County, TX"* or run `/canopy-leads:build Travis County, TX`.
 
 **As a command-line tool** (Python 3.10+):
 
 ```bash
-git clone https://github.com/qdevery/territory-gtm && cd territory-gtm
+git clone https://github.com/qdevery/canopy-based-leads && cd canopy-based-leads
 python3 -m venv .venv && source .venv/bin/activate
 pip install -e .
-tgtm demo runs/demo                      # synthetic county, offline, ~1 minute
-tgtm init runs/harris --county harris_tx --trade tree_care
-tgtm fetch runs/harris                   # ~650 MB from HCAD, canopy, storm reports
-tgtm run runs/harris
+canopy-leads demo runs/demo                      # synthetic county, offline, ~1 minute
+canopy-leads init runs/harris --county harris_tx --trade tree_care
+canopy-leads fetch runs/harris                   # ~650 MB from HCAD, canopy, storm reports
+canopy-leads run runs/harris
 ```
 
 ## What you get (in `runs/<county>/output/`)
@@ -76,7 +76,7 @@ See [`examples/demo_output/`](examples/demo_output/) for a full set from the syn
 | | |
 |---|---|
 | Skills | `build-territory-list`, `find-contacts`, `add-county`, `add-trade`, `storm-alerts` |
-| Commands | `/territory-gtm:demo`, `/territory-gtm:build`, `/territory-gtm:storm-alert` |
+| Commands | `/canopy-leads:demo`, `/canopy-leads:build`, `/canopy-leads:storm-alert` |
 | Hook | `hooks/guardrails.py`: inside a project folder, blocks sending, sequencing and CRM writes, and asks before any credit-spending enrichment |
 
 ## Ground rules
@@ -90,10 +90,10 @@ See [`examples/demo_output/`](examples/demo_output/) for a full set from the syn
 
 ## Configs
 
-- Counties: `src/territory_gtm/configs/counties/` — `harris_tx` (HCAD) and `example_county`
+- Counties: `src/canopy_leads/configs/counties/` — `harris_tx` (HCAD) and `example_county`
   (template for the `generic` adapter, which fits most counties).
-- Trades: `src/territory_gtm/configs/trades/tree_care.yaml`.
-- `tgtm init` copies both into your project folder; edit the copies.
+- Trades: `src/canopy_leads/configs/trades/tree_care.yaml`.
+- `canopy-leads init` copies both into your project folder; edit the copies.
 
 ## Data sources
 
