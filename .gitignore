@@ -1,0 +1,24 @@
+# Your own runs: raw county files, working data and lead lists stay on your machine
+runs/
+*/raw/
+*/work/
+/contacts.csv
+/firm_aliases.csv
+
+# Secrets
+.env
+*.key
+*_token*
+.mcp.json.local
+
+# Python
+__pycache__/
+*.egg-info/
+.venv/
+venv/
+build/
+dist/
+.pytest_cache/
+
+# OS
+.DS_Store

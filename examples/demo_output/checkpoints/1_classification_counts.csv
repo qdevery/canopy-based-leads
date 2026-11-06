@@ -1,0 +1,19 @@
+segment,subtype,confidence,parcels
+(not a lead),Not a target segment,excluded,420
+(not a lead),Public – other (city / county / school district / state),excluded,25
+apartments,Apartments,high,48
+churches,Religious campus,high,60
+golf,Golf / country club,high,5
+hoa,Association,high,129
+mud,Special district,high,22
+other,Office park / campus,high,14
+other,Retail center,high,12
+other,Industrial campus,medium,10
+other,Private school / university,high,8
+other,Cemetery,high,5
+other,Hospital / medical campus,high,4
+other,Hotel / resort,high,4
+senior,Nursing home,high,7
+senior,Retirement / senior living,high,7
+senior,Licensed facility,high,2
+senior,Senior living (name match),medium,2

@@ -1,0 +1,6 @@
+# Verified management firms, so every spelling of a firm rolls up to one account.
+# match_type: care_of (the C/O name), address (street | ZIP of the mailing address), owner (owner name)
+# pattern: a regular expression on the upper-cased value. Check each firm on its own website first.
+# Start from output/checkpoints/2_firm_alias_candidates.csv after the first run.
+match_type,pattern,firm,firm_type,website,verified_source
+care_of,^EXAMPLE COMMUNITY MANAGEMENT,Example Community Management,HOA management company,https://example.com,firm website (replace this row)

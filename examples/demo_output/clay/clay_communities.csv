@@ -1,0 +1,24 @@
+community_id,association,management_company,parcels,acres,canopy_acres,storm_exposure_0_100,site_city,sample_address,name_variants,manager_conflict,management_account_id,manager_score,manager_tier
+H00001,Stone Glen Community Association,Bluebird Association Services,11,122.9,56.6,70.0,Exampleville,4276 OAK BLVD,STONE GLEN COMMUNITY ASSOCIATION,mailing lines show several managers: BLUEBIRD ASSOCIATION SERVICES; COPPERLEAF HOA MANAGEMENT,A00002,86,A
+H00002,Falcon Glen Homeowners Association,Pinecone Community Management,5,60.8,26.0,65.0,Exampleville,2825 HIGHLAND LN,FALCON GLEN HOMEOWNERS ASSOCIATION,,A00001,86,A
+H00003,Laurel Crossing Homeowners Association,Pinecone Community Management,5,54.6,26.7,78.0,Exampleville,6742 LAKE ST,LAUREL CROSSING HOMEOWNERS ASSOCIATION,,A00001,86,A
+H00004,Elm Hollow Homeowners Association,Pinecone Community Management,4,49.1,24.1,76.0,Exampleville,8210 MEADOW LN,ELM HOLLOW HOMEOWNERS ASSOCIATION,,A00001,86,A
+H00005,Magnolia Run Homeowners Association,Pinecone Community Management,5,42.4,18.2,63.0,Exampleville,3722 OAK BLVD,MAGNOLIA RUN HOMEOWNERS ASSOCIATION,,A00001,86,A
+H00006,Briar Hollow Homeowners Association,Pinecone Community Management,3,37.0,20.0,83.0,Exampleville,9083 MILL RD,BRIAR HOLLOW HOMEOWNERS ASSOCIATION,,A00001,86,A
+H00007,Heron Landing Community Association,Bluebird Association Services,4,32.8,15.9,72.0,Exampleville,9263 FOREST LN,HERON LANDING COMMUNITY ASSOCIATION,,A00002,86,A
+H00008,Briar Run Homeowners Association,Pinecone Community Management,2,30.7,13.6,69.0,Exampleville,7941 MARKET ST,BRIAR RUN HOMEOWNERS ASSOCIATION,,A00001,86,A
+H00009,Willow Bend Community Association,Bluebird Association Services,4,30.7,10.9,87.0,Exampleville,4507 HIGHLAND RD,WILLOW BEND COMMUNITY ASSOCIATION,,A00002,86,A
+H00010,Laurel Lakes Homeowners Association,Pinecone Community Management,2,29.2,13.6,44.0,Exampleville,3584 SCHOOL DR,LAUREL LAKES HOMEOWNERS ASSOCIATION,,A00001,86,A
+H00011,Pecan Bend Community Association,Bluebird Association Services,4,27.2,14.1,56.0,Exampleville,5740 HIGHLAND DR,PECAN BEND COMMUNITY ASSOCIATION,,A00002,86,A
+H00012,Prairie Springs Community Association,Bluebird Association Services,3,25.0,10.6,70.0,Exampleville,1128 RIVER RD,PRAIRIE SPRINGS COMMUNITY ASSOCIATION,,A00002,86,A
+H00013,Willow Woods Community Association,Bluebird Association Services,2,18.4,8.9,32.0,Exampleville,4450 CHURCH ST,WILLOW WOODS COMMUNITY ASSOCIATION,,A00002,86,A
+H00014,Juniper Run Homeowners Association,Pinecone Community Management,4,18.2,7.6,65.0,Exampleville,8363 RIVER RD,JUNIPER RUN HOMEOWNERS ASSOCIATION,,A00001,86,A
+H00015,Fox Park Community Association,Bluebird Association Services,2,18.0,4.9,87.0,Exampleville,4608 OAK DR,FOX PARK COMMUNITY ASSOCIATION,,A00002,86,A
+H00016,Timber Park Community Association,Bluebird Association Services,4,13.9,7.6,82.0,Exampleville,2923 MILL LN,TIMBER PARK COMMUNITY ASSOCIATION,,A00002,86,A
+H00017,Laurel Village Community Association,Copperleaf HOA Management,5,52.1,17.0,50.0,Exampleville,5087 RIVER BLVD,LAUREL VILLAGE COMMUNITY ASSOCIATION,,A00003,83,A
+H00018,Cedar Lakes Community Association,Copperleaf HOA Management,5,47.4,23.7,58.0,Exampleville,4157 MARKET BLVD,CEDAR LAKES COMMUNITY ASSOCIATION,,A00003,83,A
+H00019,Juniper Lakes Community Association,Copperleaf HOA Management,5,42.9,22.0,78.0,Exampleville,1094 MARKET DR,JUNIPER LAKES COMMUNITY ASSOCIATION,,A00003,83,A
+H00020,Heron Pines Community Association,Copperleaf HOA Management,5,37.8,15.6,64.0,Exampleville,1551 LAKE RD,HERON PINES COMMUNITY ASSOCIATION,,A00003,83,A
+H00021,Elm Park Community Association,Copperleaf HOA Management,3,27.7,12.6,88.0,Exampleville,5084 SCHOOL ST,ELM PARK COMMUNITY ASSOCIATION,,A00003,83,A
+H00022,Aspen Trails Community Association,Copperleaf HOA Management,3,22.0,9.4,56.0,Exampleville,6654 MEADOW BLVD,ASPEN TRAILS COMMUNITY ASSOCIATION,,A00003,83,A
+H00023,Fox Point Community Association,Copperleaf HOA Management,2,8.4,2.6,75.0,Exampleville,6264 MILL DR,FOX POINT COMMUNITY ASSOCIATION,,A00003,83,A

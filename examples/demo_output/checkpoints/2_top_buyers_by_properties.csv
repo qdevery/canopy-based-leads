@@ -1,0 +1,161 @@
+buyer,buyer_type,segments,properties,parcels,acres,canopy_acres,confidence
+REDBUD MULTIFAMILY PARTNERS,Care-of firm on mailing,apartments (15),15,15,212.0,28.2,medium
+Summit Hollow Residential,Apartment operator,apartments (15),15,15,266.1,34.9,high
+MAPLECREST SENIOR LIVING,Operator / management company,senior (9),9,9,110.2,22.3,high
+Pinecone Community Management,HOA management company,hoa_managed (30),8,30,321.9,149.7,high
+BLUEBIRD ASSOCIATION SERVICES,Care-of firm on mailing,hoa_managed (34),8,34,289.0,129.4,medium
+COPPERLEAF HOA MANAGEMENT,Care-of firm on mailing,hoa_managed (28),7,28,238.4,102.8,medium
+Diocese of Example (central facilities),Religious organization (central facilities),churches (12),5,12,202.5,48.6,high
+GOLDEN ACRE CARE GROUP,Operator / management company,senior (5),5,5,72.3,12.0,high
+RIVERSTONE HEALTH SERVICES,Operator / management company,senior (4),4,4,55.7,9.6,high
+EXAMPLE COUNTY MUD 17,District (board vote / bids),mud (1),1,1,9.7,3.1,high
+LAUREL GLEN CHURCH OF CHRIST,Owner (no manager found),churches (1),1,1,8.7,2.0,low
+FALCON CREEK APARTMENTS,Owner (no manager found),apartments (1),1,1,9.3,1.7,low
+FALCON ESTATES APARTMENTS,Owner (no manager found),apartments (1),1,1,9.1,1.2,low
+MAPLE RIDGE APARTMENTS,Owner (no manager found),apartments (1),1,1,9.7,1.8,low
+SABLE PARK COMMUNITY ASSOCIATION,Self-managed association,hoa_self (2),1,2,9.1,4.2,medium
+COPPER POINT SHOPPING CENTER,Owner (no manager found),other (1),1,1,9.0,1.4,low
+QUAIL MEADOWS BIBLE FELLOWSHIP,Owner (no manager found),churches (1),1,1,8.9,3.8,low
+ASPEN ESTATES MANUFACTURING COMPANY,Owner (no manager found),other (1),1,1,8.3,1.1,low
+SABLE SPRINGS BAPTIST CHURCH,Owner (no manager found),churches (1),1,1,8.6,2.6,low
+MAGNOLIA POINT OFFICE PARK,Owner (no manager found),other (1),1,1,8.6,1.4,low
+ELM CREEK APARTMENTS,Owner (no manager found),apartments (1),1,1,10.0,2.5,low
+EXAMPLE COUNTY MUD 3,District (board vote / bids),mud (1),1,1,8.2,1.2,high
+EXAMPLE COUNTY MUD 20,District (board vote / bids),mud (1),1,1,8.0,2.6,high
+SABLE PINES CHURCH OF CHRIST,Owner (no manager found),churches (1),1,1,7.8,2.5,low
+TIMBER GROVE SHOPPING CENTER,Owner (no manager found),other (1),1,1,7.8,0.2,low
+HERON LANDING ACADEMY,Owner (no manager found),other (1),1,1,9.9,1.9,low
+MAPLE GROVE BAPTIST CHURCH,Owner (no manager found),churches (1),1,1,10.5,3.4,low
+ELM POINT APARTMENTS,Owner (no manager found),apartments (1),1,1,10.2,3.2,low
+COPPER OAKS SHOPPING CENTER,Owner (no manager found),other (1),1,1,10.3,0.6,low
+LAUREL WOODS SHOPPING CENTER,Owner (no manager found),other (1),1,1,13.2,2.3,low
+MAPLE PINES BAPTIST CHURCH,Owner (no manager found),churches (1),1,1,12.8,2.5,low
+PRAIRIE ESTATES BAPTIST CHURCH,Owner (no manager found),churches (1),1,1,12.8,3.0,low
+SABLE WOODS OFFICE PARK,Owner (no manager found),other (1),1,1,12.7,1.2,low
+COPPER GLEN HOMEOWNERS ASSOCIATION,Self-managed association,hoa_self (2),1,2,12.6,4.8,medium
+CEDAR RUN APARTMENTS,Owner (no manager found),apartments (1),1,1,12.3,2.0,low
+STONE RIDGE APARTMENTS,Owner (no manager found),apartments (1),1,1,12.0,2.5,low
+BLUFF TRAILS COMMUNITY ASSOCIATION,Self-managed association,hoa_self (5),1,5,11.9,4.2,medium
+JUNIPER HOLLOW APARTMENTS,Owner (no manager found),apartments (1),1,1,11.9,1.9,low
+COPPER LANDING BAPTIST CHURCH,Owner (no manager found),churches (1),1,1,11.8,3.4,low
+MAGNOLIA OAKS BAPTIST CHURCH,Owner (no manager found),churches (1),1,1,11.3,1.7,low
+TIMBER GROVE APARTMENTS,Owner (no manager found),apartments (1),1,1,11.0,1.2,low
+CYPRESS VILLAGE INN AND SUITES,Owner (no manager found),other (1),1,1,6.7,0.2,low
+EXAMPLE COUNTY MUD 19,District (board vote / bids),mud (1),1,1,10.4,3.6,high
+LAUREL RUN MEMORIAL CEMETERY,Owner (no manager found),other (1),1,1,10.3,3.9,low
+HERON SPRINGS METHODIST CHURCH,Owner (no manager found),churches (1),1,1,6.9,2.6,low
+BLUFF PARK CHURCH OF CHRIST,Owner (no manager found),churches (1),1,1,6.4,1.0,low
+QUAIL HOLLOW APARTMENTS,Owner (no manager found),apartments (1),1,1,6.6,1.1,low
+BRIAR RIDGE INN AND SUITES,Owner (no manager found),other (1),1,1,2.5,0.4,low
+FOX WOODS CHURCH OF CHRIST,Owner (no manager found),churches (1),1,1,2.9,0.6,low
+TIMBER CREEK CHURCH OF CHRIST,Owner (no manager found),churches (1),1,1,2.8,0.9,low
+SABLE OAKS METHODIST CHURCH,Owner (no manager found),churches (1),1,1,2.7,0.3,low
+TIMBER CREEK APARTMENTS,Owner (no manager found),apartments (1),1,1,2.7,0.7,low
+BLUFF HOLLOW INN AND SUITES,Owner (no manager found),other (1),1,1,2.6,0.3,low
+ELM SPRINGS METHODIST CHURCH,Owner (no manager found),churches (1),1,1,2.6,0.7,low
+ELM VILLAGE APARTMENTS,Owner (no manager found),apartments (1),1,1,2.6,0.3,low
+PECAN OAKS INN AND SUITES,Owner (no manager found),other (1),1,1,2.5,0.2,low
+ASPEN GROVE METHODIST CHURCH,Owner (no manager found),churches (1),1,1,6.5,2.2,low
+MAPLE ESTATES METHODIST CHURCH,Owner (no manager found),churches (1),1,1,2.4,0.8,low
+HERON VILLAGE APARTMENTS,Owner (no manager found),apartments (1),1,1,2.3,0.4,low
+COPPER MEADOWS METHODIST CHURCH,Owner (no manager found),churches (1),1,1,2.0,0.6,low
+WILLOW ESTATES BIBLE FELLOWSHIP,Owner (no manager found),churches (1),1,1,1.7,0.4,low
+TIMBER TRAILS METHODIST CHURCH,Owner (no manager found),churches (1),1,1,1.4,0.4,low
+EXAMPLE COUNTY MUD 12,District (board vote / bids),mud (1),1,1,1.2,0.3,high
+QUAIL RUN METHODIST CHURCH,Owner (no manager found),churches (1),1,1,1.2,0.1,low
+FOX VILLAGE BIBLE FELLOWSHIP,Owner (no manager found),churches (1),1,1,3.1,1.0,low
+WILLOW GROVE APARTMENTS,Owner (no manager found),apartments (1),1,1,3.1,0.1,low
+ELM CROSSING APARTMENTS,Owner (no manager found),apartments (1),1,1,3.2,0.5,low
+WILLOW CREEK BAPTIST CHURCH,Owner (no manager found),churches (1),1,1,3.2,0.9,low
+FOX RUN OFFICE PARK,Owner (no manager found),other (1),1,1,6.4,0.7,low
+MAPLE VILLAGE BAPTIST CHURCH,Owner (no manager found),churches (1),1,1,13.4,4.5,low
+STONE BEND METHODIST CHURCH,Owner (no manager found),churches (1),1,1,6.3,1.8,low
+EXAMPLE COUNTY MUD 24,District (board vote / bids),mud (1),1,1,6.2,1.0,high
+TIMBER LANDING CHURCH OF CHRIST,Owner (no manager found),churches (1),1,1,5.6,2.2,low
+EXAMPLE COUNTY MUD 5,District (board vote / bids),mud (1),1,1,5.2,1.4,high
+LAUREL PINES BAPTIST CHURCH,Owner (no manager found),churches (1),1,1,5.0,1.0,low
+ASPEN BEND APARTMENTS,Owner (no manager found),apartments (1),1,1,4.9,1.2,low
+MAGNOLIA GLEN CHURCH OF CHRIST,Owner (no manager found),churches (1),1,1,4.6,1.1,low
+EXAMPLE COUNTY MUD 13,District (board vote / bids),mud (1),1,1,4.3,0.7,high
+ELM LANDING OFFICE PARK,Owner (no manager found),other (1),1,1,4.3,0.5,low
+CYPRESS POINT METHODIST CHURCH,Owner (no manager found),churches (1),1,1,4.1,0.5,low
+MAPLE RUN APARTMENTS,Owner (no manager found),apartments (1),1,1,3.5,0.3,low
+CYPRESS TRAILS APARTMENTS,Owner (no manager found),apartments (1),1,1,3.4,0.7,low
+PECAN VILLAGE BAPTIST CHURCH,Owner (no manager found),churches (1),1,1,3.3,0.4,low
+FOX TRAILS MEMORIAL CEMETERY,Owner (no manager found),other (1),1,1,13.3,3.7,low
+MAPLE RIDGE BIBLE FELLOWSHIP,Owner (no manager found),churches (2),1,2,14.5,2.6,low
+ELM VILLAGE BAPTIST CHURCH,Owner (no manager found),churches (1),1,1,13.8,3.5,low
+SABLE SPRINGS ACADEMY,Owner (no manager found),other (1),1,1,35.6,6.3,low
+CEDAR CROSSING OFFICE PARK,Owner (no manager found),other (1),1,1,32.4,3.8,low
+CYPRESS GLEN MEMORIAL CEMETERY,Owner (no manager found),other (1),1,1,32.1,11.6,low
+PECAN RUN MEMORIAL CEMETERY,Owner (no manager found),other (1),1,1,31.8,10.9,low
+TIMBER HOLLOW OFFICE PARK,Owner (no manager found),other (1),1,1,30.5,3.0,low
+PECAN PINES OFFICE PARK,Owner (no manager found),other (1),1,1,30.0,5.0,low
+STONE BEND OFFICE PARK,Owner (no manager found),other (1),1,1,29.8,1.5,low
+EXAMPLE COUNTY MUD 15,District (board vote / bids),mud (1),1,1,29.2,9.7,high
+STONE MEADOWS SHOPPING CENTER,Owner (no manager found),other (1),1,1,28.2,2.4,low
+MAGNOLIA PARK SHOPPING CENTER,Owner (no manager found),other (1),1,1,27.8,3.5,low
+EXAMPLE COUNTY MUD 7,District (board vote / bids),mud (1),1,1,27.8,4.6,high
+JUNIPER LANDING HOMEOWNERS ASSOCIATION,Self-managed association,hoa_self (5),1,5,27.4,12.1,medium
+FALCON GROVE SHOPPING CENTER,Owner (no manager found),other (1),1,1,27.2,0.9,low
+EXAMPLE COUNTY MUD 10,District (board vote / bids),mud (1),1,1,26.8,6.5,high
+STONE GROVE SHOPPING CENTER,Owner (no manager found),other (1),1,1,26.7,3.0,low
+EXAMPLE COUNTY MUD 21,District (board vote / bids),mud (1),1,1,26.3,7.8,high
+PRAIRIE OAKS OFFICE PARK,Owner (no manager found),other (1),1,1,34.8,8.5,low
+CEDAR PINES HOMEOWNERS ASSOCIATION,Self-managed association,hoa_self (5),1,5,35.8,17.9,medium
+BLUFF TRAILS ACADEMY,Owner (no manager found),other (1),1,1,24.4,6.4,low
+EXAMPLE COUNTY MUD 14,District (board vote / bids),mud (1),1,1,36.4,8.7,high
+HERON LANDING COUNTRY CLUB,Owner (no manager found),golf (1),1,1,257.6,131.6,low
+FALCON ESTATES COUNTRY CLUB,Owner (no manager found),golf (1),1,1,252.1,119.0,low
+PRAIRIE LAKES COUNTRY CLUB,Owner (no manager found),golf (1),1,1,175.2,85.5,low
+ASPEN CREEK COUNTRY CLUB,Owner (no manager found),golf (1),1,1,151.9,40.4,low
+HERON SPRINGS COUNTRY CLUB,Owner (no manager found),golf (1),1,1,147.9,71.9,low
+COPPER WOODS MANUFACTURING COMPANY,Owner (no manager found),other (1),1,1,60.4,9.8,low
+FOX TRAILS MANUFACTURING COMPANY,Owner (no manager found),other (1),1,1,57.2,10.8,low
+BLUFF WOODS ACADEMY,Owner (no manager found),other (2),1,2,55.9,15.2,low
+CEDAR TRAILS REGIONAL HOSPITAL,Owner (no manager found),other (1),1,1,50.6,13.5,low
+STONE BEND REGIONAL HOSPITAL,Owner (no manager found),other (1),1,1,48.6,8.2,low
+EXAMPLE COUNTY MUD 8,District (board vote / bids),mud (1),1,1,39.2,14.6,high
+PECAN CROSSING COMMUNITY ASSOCIATION,Self-managed association,hoa_self (4),1,4,38.8,17.0,medium
+LAUREL GROVE COMMUNITY ASSOCIATION,Self-managed association,hoa_self (3),1,3,37.0,16.9,medium
+EXAMPLE COUNTY MUD 23,District (board vote / bids),mud (1),1,1,36.5,15.8,high
+SABLE LANDING COMMUNITY ASSOCIATION,Self-managed association,hoa_self (4),1,4,36.4,17.7,medium
+FALCON LANDING OFFICE PARK,Owner (no manager found),other (1),1,1,24.9,4.5,low
+EXAMPLE COUNTY MUD 18,District (board vote / bids),mud (1),1,1,23.6,6.7,high
+JUNIPER GROVE OFFICE PARK,Owner (no manager found),other (1),1,1,14.0,2.0,low
+FOX LAKES CHURCH OF CHRIST,Owner (no manager found),churches (1),1,1,17.6,4.5,low
+BRIAR CROSSING BIBLE FELLOWSHIP,Owner (no manager found),churches (1),1,1,17.3,4.0,low
+PRAIRIE PARK BIBLE FELLOWSHIP,Owner (no manager found),churches (1),1,1,17.1,4.5,low
+BLUFF HOLLOW CHURCH OF CHRIST,Owner (no manager found),churches (1),1,1,17.1,5.4,low
+BLUFF MEADOWS METHODIST CHURCH,Owner (no manager found),churches (1),1,1,17.0,2.1,low
+HERON CREEK CHURCH OF CHRIST,Owner (no manager found),churches (1),1,1,16.8,4.1,low
+MAPLE GLEN METHODIST CHURCH,Owner (no manager found),churches (1),1,1,16.5,3.4,low
+PECAN RUN HOMEOWNERS ASSOCIATION,Self-managed association,hoa_self (2),1,2,16.5,8.0,medium
+TIMBER RIDGE BAPTIST CHURCH,Owner (no manager found),churches (1),1,1,16.0,6.1,low
+FALCON RIDGE CHURCH OF CHRIST,Owner (no manager found),churches (1),1,1,15.9,2.0,low
+STONE GLEN OFFICE PARK,Owner (no manager found),other (1),1,1,15.8,3.8,low
+ELM RUN METHODIST CHURCH,Owner (no manager found),churches (1),1,1,15.7,3.5,low
+MAGNOLIA VILLAGE ACADEMY,Owner (no manager found),other (1),1,1,15.3,1.0,low
+FALCON OAKS BIBLE FELLOWSHIP,Owner (no manager found),churches (1),1,1,15.2,2.6,low
+TIMBER PINES BAPTIST CHURCH,Owner (no manager found),churches (1),1,1,15.1,3.1,low
+ASPEN POINT BIBLE FELLOWSHIP,Owner (no manager found),churches (1),1,1,14.1,1.0,low
+MAPLE POINT BAPTIST CHURCH,Owner (no manager found),churches (1),1,1,17.5,6.9,low
+FOX CROSSING METHODIST CHURCH,Owner (no manager found),churches (1),1,1,18.0,3.4,low
+PECAN WOODS MEMORIAL CEMETERY,Owner (no manager found),other (1),1,1,22.8,6.0,low
+EXAMPLE COUNTY MUD 11,District (board vote / bids),mud (1),1,1,18.1,3.5,high
+EXAMPLE COUNTY MUD 22,District (board vote / bids),mud (1),1,1,22.6,7.3,high
+EXAMPLE COUNTY MUD 4,District (board vote / bids),mud (1),1,1,22.5,7.5,high
+TIMBER CREEK SHOPPING CENTER,Owner (no manager found),other (1),1,1,22.4,2.0,low
+LAUREL SPRINGS REGIONAL HOSPITAL,Owner (no manager found),other (1),1,1,21.8,0.7,low
+JUNIPER ESTATES SHOPPING CENTER,Owner (no manager found),other (1),1,1,21.6,3.7,low
+CYPRESS MEADOWS COMMUNITY ASSOCIATION,Self-managed association,hoa_self (3),1,3,21.3,9.7,medium
+FALCON CROSSING REGIONAL HOSPITAL,Owner (no manager found),other (1),1,1,20.5,1.7,low
+EXAMPLE COUNTY MUD 6,District (board vote / bids),mud (1),1,1,20.5,6.4,high
+EXAMPLE COUNTY MUD 16,District (board vote / bids),mud (1),1,1,19.8,4.9,high
+FOX VILLAGE ACADEMY,Owner (no manager found),other (1),1,1,19.5,2.5,low
+JUNIPER PINES OFFICE PARK,Owner (no manager found),other (1),1,1,19.5,3.2,low
+MAPLE ESTATES OFFICE PARK,Owner (no manager found),other (1),1,1,19.2,4.2,low
+PECAN GROVE SHOPPING CENTER,Owner (no manager found),other (2),1,2,19.0,2.5,low
+QUAIL ESTATES ACADEMY,Owner (no manager found),other (1),1,1,18.9,3.4,low
+SABLE ESTATES COMMUNITY ASSOCIATION,Self-managed association,hoa_self (2),1,2,18.4,5.8,medium
+EXAMPLE COUNTY MUD 9,District (board vote / bids),mud (1),1,1,1.1,0.3,high

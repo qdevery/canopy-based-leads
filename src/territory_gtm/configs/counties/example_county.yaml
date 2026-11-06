@@ -1,0 +1,81 @@
+# Example County: a synthetic county for the demo (tgtm demo). Every name is invented.
+# It doubles as a template for the `generic` adapter, which fits most counties: one parcel
+# layer (shapefile / geodatabase / GeoPackage) whose attributes carry owner and land use.
+name: Example County, TX (synthetic)
+short_name: Example County
+state: TX
+demo: true
+adapter: generic
+roll_source: Example County appraisal roll (synthetic)
+canopy_source: synthetic canopy raster (demo)
+nws_offices: []
+
+source:
+  parcels: example_parcels.gpkg   # path under raw/
+  # table: roll.csv               # optional separate roll table, joined on the keys below
+  # parcels_key: PARCEL_ID
+  # table_key: ACCOUNT
+columns:                          # standard field: column in the county's file
+  parcel_id: PARCEL_ID
+  owner_name: OWNER
+  mailto: MAIL_NAME               # the mailing name line, where "C/O <firm>" usually appears
+  mail_addr_1: MAIL_ADDR
+  mail_city: MAIL_CITY
+  mail_state: MAIL_ST
+  mail_zip: MAIL_ZIP
+  site_addr: SITUS
+  site_city: SITUS_CITY
+  site_zip: SITUS_ZIP
+  property_name: PROP_NAME
+  acreage: ACRES
+  market_value: MKT_VAL
+code_columns:                     # code family: column
+  state_class: STATE_CD
+  building_type: BLDG_TYPE
+  land_use: LAND_USE
+
+codes:
+  state_class:
+    A1: single_family
+    B1: multifamily
+    F1: commercial
+    F2: industrial
+    X1: government_exempt
+    X2: charitable_exempt
+    X3: religious_exempt
+    X4: cemetery_exempt
+    XJ: private_school_exempt
+  building_type:
+    APT: apartment
+    NURS: nursing_home
+    RETIRE: retirement_home
+    GOLF: country_club_golf
+    CHURCH: religious_building
+    HOSP: hospital
+    SCHOOL: school
+    OFFICE: office
+    RETAIL: retail
+    WHSE: industrial_building
+    HOTEL: hotel
+  land_use:
+    OPEN: open_space
+    UTIL: utility_district_land
+
+keyword_additions:
+  PUBLIC: "EXAMPLEVILLE|EXAMPLE ISD"
+
+licensed_facilities:
+  segment: senior
+  keep_segments: [mud]
+  source: Example state facility list (synthetic)
+  files:
+    - {path: facilities.csv}
+  columns: {name: Facility Name, latlon: Geo Location, operator: Management Company, phone: Facility Phone Number}
+
+storm_events:
+  - {name: Hurricane Example 2024, method: gust_field, weight: 0.40, gust_low: 60, gust_high: 85, hook_mph: 75}
+  - {name: Spring 2024 derecho, method: nearest_report, weight: 0.35, full_km: 2, zero_km: 15}
+  - {name: Last 12 months, method: recent, weight: 0.25, days: 365}
+
+sources:
+  - {source: Synthetic Example County roll, url: "", used_for: demo only}

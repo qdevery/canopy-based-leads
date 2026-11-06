@@ -1,0 +1,10 @@
+segment,accounts,properties,parcels,acres,canopy_acres,avg_score,tier_A,tier_B,accounts_with_contacts
+HOA – Managed,3,23,92,849,382,85.0,3,0,2
+HOA – Self-Managed,11,11,37,265,118,53.5,2,9,0
+Apartments / Multifamily,20,45,48,606,86,48.3,2,10,1
+Senior Living & Care,3,17,18,238,44,67.7,3,0,0
+Churches & Religious Campuses,48,52,60,659,160,45.2,1,25,1
+Golf Courses & Country Clubs,5,5,5,985,448,74.6,5,0,0
+Other Commercial with Grounds,48,48,50,1067,186,47.0,1,27,0
+Utility & Special Districts,22,22,22,404,118,47.4,0,15,0
+Total,160,223,332,5073,1542,49.1,17,86,4

@@ -1,0 +1,249 @@
+# Commercial tree care: who buys pruning, removals, tree-risk assessments and storm response.
+#
+# This file is county-neutral. Rules only use tags (which county.yaml maps from local codes)
+# and name keywords. Copy it to make another trade: change the segments, rules, score and angles.
+id: tree_care
+name: Commercial tree care
+
+segments:
+  # id, label shown in the workbook, fit = how well the segment buys recurring work (0-1),
+  # unit = what one buyer's properties are called, people_search = whether the contacts step
+  # may look up named people (false = public office lines / websites only)
+  - id: hoa
+    label: HOA (before the managed / self-managed split)
+    fit: 0.8
+  - id: hoa_managed
+    label: HOA – Managed
+    tab: HOA - Managed
+    fit: 0.95
+    unit: associations
+    buyer_titles: Director of Community Management; Community Manager; Portfolio Manager
+    angle: >-
+      {name} manages {properties} associations here with about {canopy_acres} canopy acres of common area,
+      many {storm_hook}, so pitch one portfolio-wide tree-risk inventory and pre-storm-season pruning bid its
+      managers can take to each board this budget season.
+  - id: hoa_self
+    label: HOA – Self-Managed
+    tab: HOA - Self-Managed
+    fit: 0.60
+    people_search: false     # volunteer boards: no lookups of board members, ever
+    angle: >-
+      Offer the {name} board a free common-area tree inventory ({acres} acres, {storm_hook}) before its fall
+      budget meeting, so storm-prone trees make it into next year's budget and reserve plan.
+  - id: apartments
+    label: Apartments / Multifamily
+    tab: Apartments
+    fit: 0.80
+    unit: communities
+    buyer_titles: Regional Maintenance Director; Regional Property Manager; Facilities Manager
+    angle: >-
+      Pitch {name} a resident-safety pruning program and priority storm-response retainer for {sites}
+      ({acres} acres, {storm_hook}), framed around liability, insurance and keeping parking lots and walkways clear.
+  - id: senior
+    label: Senior Living & Care
+    tab: Senior Living
+    fit: 0.75
+    unit: communities
+    buyer_titles: Director of Facilities; Executive Director; Maintenance Director
+    angle: >-
+      Lead with resident safety: offer {name} a hazard-tree assessment of walkways, courtyards and drives at
+      {sites} ({storm_hook}) plus a priority storm-response agreement so residents and staff aren't cut off
+      after the next storm.
+  - id: churches
+    label: Churches & Religious Campuses
+    tab: Churches
+    fit: 0.60
+    unit: campuses
+    buyer_titles: Facilities Manager; Executive Pastor; Business Administrator
+    angle: >-
+      Offer {name} a free tree-safety walk of {sites} ({acres} acres), {storm_hook}, with phased pruning that
+      fits a facilities budget and keeps parking lots, playgrounds and school drop-off safe.
+  - id: golf
+    label: Golf Courses & Country Clubs
+    tab: Golf
+    fit: 1.00
+    unit: clubs
+    buyer_titles: Golf Course Superintendent; Director of Agronomy; General Manager
+    angle: >-
+      Offer the superintendent at {name} off-season canopy thinning and hazard-tree removal along cart paths
+      and greens at {sites} ({canopy_acres} canopy acres, {storm_hook}) to cut storm cleanup and improve sun and
+      airflow on the turf.
+  - id: other
+    label: Other Commercial with Grounds
+    tab: Other Commercial
+    fit: 0.65
+    unit: sites
+    buyer_titles: Facilities Director; Director of Plant Operations; Grounds Manager
+    angle: >-
+      Offer the facilities team at {name} a site-wide tree-risk assessment and storm-response agreement for
+      {sites} ({acres} acres, {storm_hook}), positioned as liability, insurance and business-continuity protection.
+  - id: mud
+    label: Utility & Special Districts
+    tab: Districts
+    fit: 0.55
+    unit: districts
+    people_search: false     # public bodies: use the district website and its operator firm
+    angle: >-
+      Get on {name}'s vendor and bid list through {operator} and propose park, trail and detention-pond tree
+      maintenance ({acres} acres, {storm_hook}) timed to the district's budget cycle.
+
+# Who to look for first at an account (regexes, best first), used to pick the best contact
+contact_titles:
+  - facilit|grounds|landscap|superintendent|agronom|maintenance|plant op
+  - regional|director|vice president|\bvp\b|portfolio|asset
+  - executive director|general manager|community manager|property manager|executive pastor|business admin
+
+filters:
+  min_acres: 1.0                      # grounds big enough to need an arborist
+  aggregate_floor_segments: [hoa]     # HOA reserves are small strips: the floor applies to the association total
+  canopy_min_acres: 0
+  extra:
+    - {subtype: Industrial campus, min_acres: 5, min_canopy_pct: 10}
+
+buyer:
+  district_segments: [mud]            # buy by board vote / public bids: the district is the buyer
+  facility_segments: [senior]         # the licensed operator is the buyer
+  group_segments: [hoa]               # spelling variants of one association merge
+  managed_split: {segment: hoa, managed: hoa_managed, self: hoa_self, shared_office_min: 5}
+
+score:
+  acreage: {points: 25, full_at: 300}
+  canopy: {points: 20, full_acres: 60, full_pct: 35, acres_share: 0.6}
+  properties: {points: 15, full_at: 50}
+  segment_fit: {points: 20}
+  storm: {points: 20}
+tiers: {A: 60, B: 45}
+
+# ---------------------------------------------------------------- classification
+# Name keywords are matched against owner names, the mailing name and property names, upper-cased.
+keywords:
+  MUD: "MUNICIPAL UTILITY DIST|\\bM\\.?U\\.?D\\.?\\b|\\bMUD\\s*#?\\s*\\d|UTILITY DIST(RICT)?\\b|WATER CONTROL (& |AND )?IMP|\\bW\\.?C\\.?I\\.?D\\b|FRESH WATER SUPPLY|\\bF\\.?W\\.?S\\.?D\\b|LEVEE IMPROVEMENT|\\bL\\.?I\\.?D\\.?\\b\\s*#?\\s*\\d|MANAGEMENT DIST(RICT)?\\b|IMPROVEMENT DIST(RICT)?\\b|SPECIAL UTILITY DIST|REGIONAL WATER AUTH|DRAINAGE DIST|EMERGENCY SERVICES? DIST|\\bESD\\s*#?\\s*\\d|RECLAMATION DIST|NAVIGATION DIST|COMMUNITY DEVELOPMENT DIST|\\bCDD\\b|METRO(POLITAN)? DIST"
+  # bare "HOA" is also a given name: it counts only at the end of a name or before INC/LLC/CORP
+  HOA_TOKEN: "\\bH\\.?O\\.?A\\.?\\s+(INC|LLC|CORP)\\b|\\w\\s+H\\.?O\\.?A\\.?\\s*(\\||$)"
+  HOA: "HOME\\s?OWNERS?|HOMEOWNER|PROPERTY OWNERS|\\bP\\.?O\\.?A\\b|OWNERS ASS|COMMUNITY ASS|COMMUNITY (SVCS?|SERVICES?) ASS|CIVIC (CLUB|ASS|LEAGUE|ORG)|MAINT(ENANCE)? (ASS|FUND|CORP)|COUNCIL OF CO.?OWNERS|CONDO(MINIUM)? (OWNERS )?ASS|TOWN\\s?HOMES? ASS|TOWN\\s?HOUSES? ASS|RECREATION(AL)? ASS|COMMUNITY IMP(ROVEMENT)? ASS|RESIDENTS? ASS|VILLAGE ASS|\\bASSN\\b.*\\b(VILLAGE|ESTATES|LAKES|PARK|PLACE|TRAILS|CROSSING|SECTION|SEC)\\b|\\b(VILLAGE|VILLAS|ESTATES|LAKES|PLACE|TRAILS|CROSSING|CREEK|FOREST|OAKS|POINTE?|LANDING|RESERVE|RANCH|GROVE|GARDENS|MEADOWS|TERRACE|HEIGHTS)\\b.*\\b(ASSN|ASSOC|ASSC|ASSOCIATION)\\b"
+  GOLF: "\\bGOLF\\b|COUNTRY CLUB|\\bLINKS\\b"
+  SENIOR: "SENIOR (LIVING|CARE|HOUSING|COMMUNIT|RESIDENCE|APART|APTS|VILLAGE|LIFESTYLE)|SENIORS\\b|ASSISTED LIVING|NURSING|MEMORY CARE|ALZHEIMER|RETIREMENT (COMMUNITY|HOME|CENTER|RESIDENCE|VILLAGE|LIVING)|SKILLED NURSING|REHAB(ILITATION)? (CENTER|CTR|&|AND)|HEALTH ?CARE (CENTER|CTR)|CONVALESCENT|INDEPENDENT LIVING|LIFE ?CARE|CONTINUING CARE|\\bELDER(LY)? CARE|\\bCCRC\\b|\\bSNF\\b|\\bALF\\b|GERIATRIC|POST ACUTE|POST-ACUTE|TRANSITIONAL CARE"
+  CHURCH: "CHURCH|MINISTR|BAPTIST|METHODIST|CATHOLIC|DIOCESE|LUTHERAN|PRESBYTER|EPISCOPAL|\\bTEMPLE\\b|SYNAGOGUE|MOSQUE|ISLAMIC|MASJID|MUSLIM|CONGREGATION|CHAPEL|TABERNACLE|ASSEMBL(Y|IES) OF GOD|FELLOWSHIP|PARISH|KINGDOM HALL|JEHOVAH|LATTER.?DAY|\\bBIBLE\\b|GOSPEL|EVANGEL|PENTECOST|APOSTOLIC|SIKH|GURDWARA|HINDU|MANDIR|BUDDHIS|ORTHODOX|SEVENTH.?DAY|CHRISTIAN CENTER|WORSHIP|TRUSTEES? OF .*(CHURCH|CONG)"
+  CEMETERY: "CEMETER|MEMORIAL GARDENS|FUNERAL|BURIAL|MAUSOLEUM|\\bMORTUARY\\b|CREMATOR"
+  HOSPITAL: "HOSPITAL|MEDICAL CENTER|MEDICAL CTR|HEALTH SYSTEM|HEALTH ?CARE SYSTEM|CLINIC\\b"
+  SCHOOL: "ACADEMY|\\bSCHOOL\\b|SCHOOLS\\b|UNIVERSITY|COLLEGE|PREPARATORY|\\bPREP\\b|MONTESSORI|SEMINARY|INSTITUTE"
+  APT: "APARTMENT|\\bAPTS?\\b|MULTI.?FAMILY|RESIDENCES? AT|\\bLOFTS\\b"
+  # Public bodies that are not special districts: reported as excluded, never leads.
+  # county.yaml adds local names (the state university, the port authority...) via keyword_additions.
+  PUBLIC: "\\bCITY OF\\b|\\b[A-Z]+ COUNTY\\b(?! (MUD|MUNICIPAL|WCID|FWSD|W C I D|UTILITY|FRESH|IMPROVEMENT|EMERGENCY|ESD|WATER|DRAINAGE|LEVEE|DEVELOPMENT|DISTRICT))|\\bCOUNTY OF\\b|\\bSTATE OF\\b|UNITED STATES (OF AMERICA|DEP|GOV|POSTAL)|\\bU ?S (DEPT|GOVT|POSTAL)|POSTAL SERVICE|INDEPENDENT SCHOOL|PUBLIC SCHOOLS|SCHOOL DIST|BOARD OF EDUCATION|\\bI\\.?S\\.?D\\b|COMMUNITY COLLEGE|COLLEGE SYSTEM|COLLEGE DIST|PORT AUTHORITY|\\bMETRO(POLITAN)? TRANSIT|TRANSIT AUTH|HOUSING AUTHORITY|DEPARTMENT OF TRANSPORTATION|FLOOD CONTROL|TOWN OF\\b|VILLAGE OF\\b|^USA$|^U S A\\b"
+
+# Reusable conditions (YAML anchors), referenced below with *name
+conditions:
+  hoa_name: &hoa_name
+    any_of:
+      - keyword: HOA
+      - {keyword: HOA_TOKEN, not_tag: [condo_unit, single_family]}
+
+# Evaluated top to bottom; the first rule whose `when` holds decides. segment: null = not a lead.
+# Conditions: keyword / owner_keyword / not_keyword / not_owner_keyword / tag / not_tag (lists = any),
+# only {family, tags} (every code of that family is one of these), any_of [..], none_of [..].
+rules:
+  # accounts without grounds of their own
+  - {segment: null, subtype: Improvements-only account (land is on another account), confidence: excluded,
+     when: {only: {family: land_use, tags: [improvements_only]}}}
+  - {segment: null, subtype: Individual condo unit, confidence: excluded,
+     when: {tag: condo_unit, none_of: [*hoa_name]}}
+
+  # special districts (board vote / bids)
+  - {segment: mud, subtype: Special district, confidence: high, when: {keyword: MUD}}
+  - {segment: mud, subtype: Special district, confidence: medium,
+     when: {tag: utility_district_land, not_keyword: PUBLIC, any_of: [{tag: [government_exempt, utility, district_exempt]}]}}
+
+  # cemeteries before churches: many church-owned cemeteries
+  - {segment: other, subtype: Cemetery, confidence: high, when: {tag: cemetery_exempt}}
+  - {segment: other, subtype: Cemetery, confidence: medium,
+     when: {keyword: CEMETERY, not_tag: funeral_home, not_keyword: PUBLIC}}
+
+  # golf and country clubs
+  - {segment: golf, subtype: Municipal / public golf, confidence: medium, when: {tag: country_club_golf, keyword: PUBLIC}}
+  - {segment: golf, subtype: Golf / country club, confidence: high, when: {tag: country_club_golf}}
+  - {segment: golf, subtype: Golf / country club, confidence: medium,
+     when: {keyword: GOLF, not_keyword: PUBLIC, none_of: [*hoa_name]}}
+  - {segment: golf, subtype: Country club (no golf), confidence: medium, when: {tag: country_club, none_of: [*hoa_name]}}
+  - {segment: golf, subtype: Public golf course, confidence: medium, when: {tag: park_golf, keyword: GOLF}}
+
+  # senior living and care
+  - {segment: senior, subtype: Nursing home, confidence: high, when: {tag: nursing_home}}
+  - {segment: senior, subtype: Retirement / senior living, confidence: high, when: {tag: retirement_home}}
+  - {segment: senior, subtype: Senior living (name match), confidence: medium,
+     when: {keyword: SENIOR, not_keyword: [PUBLIC, HOSPITAL], none_of: [*hoa_name]}}
+
+  # churches and religious campuses
+  - {segment: churches, subtype: Religious campus, confidence: high, when: {tag: religious_exempt}}
+  - {segment: churches, subtype: Religious campus, confidence: high, when: {tag: religious_building}}
+  - {segment: churches, subtype: Religious campus, confidence: medium,
+     when: {owner_keyword: CHURCH, not_keyword: PUBLIC, not_owner_keyword: HOSPITAL,
+            not_tag: [industrial, multifamily, government_exempt], none_of: [*hoa_name]}}
+
+  # HOAs and civic clubs
+  - {segment: hoa, subtype: Association, confidence: high,
+     when: {any_of: [*hoa_name], not_keyword: PUBLIC, tag: open_space}}
+  - {segment: hoa, subtype: Association, confidence: medium, when: {any_of: [*hoa_name], not_keyword: PUBLIC}}
+
+  # apartments
+  - {segment: apartments, subtype: Apartments, confidence: high, when: {tag: [multifamily, apartment]}}
+  - {segment: apartments, subtype: Apartments, confidence: medium,
+     when: {keyword: APT, not_keyword: PUBLIC, not_tag: government_exempt}}
+
+  # public owners that are not districts
+  - {segment: null, subtype: Public – other (city / county / school district / state), confidence: excluded,
+     when: {any_of: [{keyword: PUBLIC}, {tag: government_exempt}]}}
+
+  # other commercial with grounds
+  - {segment: other, subtype: Hospital / medical campus, confidence: high, when: {tag: [hospital, hospital_land]}}
+  - {segment: other, subtype: Private school / university, confidence: high, when: {tag: [private_school_exempt, school]}}
+  - {segment: other, subtype: Private school / university, confidence: medium, when: {keyword: SCHOOL, tag: charitable_exempt}}
+  - {segment: other, subtype: Hospital / medical campus, confidence: medium,
+     when: {keyword: HOSPITAL, tag: [charitable_exempt, commercial]}}
+  - {segment: other, subtype: Hospital / medical campus, confidence: medium, when: {tag: medical_office}}
+  - {segment: other, subtype: Hotel / resort, confidence: high, when: {tag: hotel}}
+  - {segment: other, subtype: Office park / campus, confidence: high, when: {tag: office}}
+  - {segment: other, subtype: Retail center, confidence: high, when: {tag: retail}}
+  - {segment: other, subtype: Industrial campus, confidence: medium, when: {tag: [industrial, industrial_building]}}
+
+  # worth a look at the checkpoint
+  - {segment: null, subtype: Uncertain – open space, owner not an association, confidence: uncertain, when: {tag: open_space}}
+  - {segment: null, subtype: Uncertain – charitable exempt, no segment match, confidence: uncertain, when: {tag: charitable_exempt}}
+
+# Tags the rules above use. county.yaml maps local codes to these.
+tag_glossary:
+  single_family: detached homes
+  multifamily: apartments / multifamily land class
+  apartment: apartment building type
+  condo_unit: an individual condominium unit
+  commercial: commercial land class
+  industrial: industrial land class
+  industrial_building: warehouse / plant building type
+  government_exempt: exempt, owned by a government
+  charitable_exempt: exempt, charitable
+  religious_exempt: exempt, religious
+  cemetery_exempt: exempt, cemetery
+  private_school_exempt: exempt, private school
+  utility: utility land class
+  district_exempt: exempt special district
+  nursing_home: nursing / skilled care building
+  retirement_home: retirement / assisted living building
+  country_club_golf: country club with a golf course
+  country_club: country club without golf
+  religious_building: church / religious building
+  hospital: hospital building
+  hospital_land: hospital land use
+  medical_office: medical office building
+  school: school / college building
+  hotel: hotel building
+  office: office / R&D building
+  retail: shopping center building
+  funeral_home: funeral home building
+  open_space: residential open space / reserve land use
+  park_golf: park or golf land use
+  utility_district_land: land used by a utility district
+  improvements_only: account holds a building but no land of its own
+
+sources:
+  - {source: USFS / NLCD Tree Canopy Cover 2021 (30 m), url: "https://www.mrlc.gov/data", used_for: canopy per parcel}
+  - {source: NWS Local Storm Reports via Iowa Environmental Mesonet, url: "https://mesonet.agron.iastate.edu/request/gis/lsrs.phtml", used_for: storm exposure and weekly alerts}

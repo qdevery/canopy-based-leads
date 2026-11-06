@@ -1,0 +1,17 @@
+{
+  "description": "territory-gtm guardrails: block outreach and CRM writes, and require a confirmation before any credit-spending enrichment.",
+  "hooks": {
+    "PreToolUse": [
+      {
+        "matcher": "mcp__.*|Bash",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "python3 \"${CLAUDE_PLUGIN_ROOT}/hooks/guardrails.py\"",
+            "timeout": 10
+          }
+        ]
+      }
+    ]
+  }
+}

@@ -1,0 +1,7 @@
+account_id,account,contact_type,name,title,company,business_email,email_status,business_phone,linkedin_url,city,source,found_on,segment_label,score,tier
+A00001,Pinecone Community Management,Person,Jordan Lee,Director of Community Management,Pinecone Community Management,jordan.lee@pinecone-cm.example,verified (demo),(555) 010-2000,,,invented for the demo,2026-11-01,HOA – Managed,86,A
+A00001,Pinecone Community Management,Person,Riley Park,Community Manager,Pinecone Community Management,riley.park@pinecone-cm.example,verified (demo),,,,invented for the demo,2026-11-01,HOA – Managed,86,A
+A00002,Bluebird Association Services,Person,Sam Rivera,Portfolio Manager,Bluebird Association Services,sam.rivera@bluebird-as.example,verified (demo),(555) 010-3000,,,invented for the demo,2026-11-01,HOA – Managed,86,A
+A00006,Summit Hollow Residential,Person,Taylor Brooks,Regional Maintenance Supervisor,Summit Hollow Residential,tbrooks@summithollow.example,verified (demo),,,,invented for the demo,2026-11-01,Apartments / Multifamily,77,A
+A00006,Summit Hollow Residential,Person,Avery Chen,Personal address example,Summit Hollow Residential,,personal address dropped,,,,invented for the demo,2026-11-01,Apartments / Multifamily,77,A
+A00009,Diocese Of Example (central facilities),Person,Casey Morgan,Director of Facilities,Diocese of Example,facilities@diocese.example,shared office mailbox (demo),(555) 010-4000,,,invented for the demo,2026-11-01,Churches & Religious Campuses,73,A

@@ -1,0 +1,168 @@
+# Harris County, Texas (Houston). Harris Central Appraisal District (HCAD) bulk data.
+# The worked example this project was built on. Update the year in the URLs each fall
+# when HCAD posts the new certified roll.
+name: Harris County, TX
+short_name: Harris County
+state: TX
+adapter: hcad
+roll_source: HCAD 2026 certified roll (download.hcad.org)
+bbox: [-95.97, 29.49, -94.90, 30.18]     # west, south, east, north (lon/lat): canopy clip and storm search
+nws_offices: [HGX]                         # NWS Houston/Galveston
+
+downloads:                                 # ~650 MB zipped, ~4.5 GB unzipped
+  - {url: "https://download.hcad.org/data/CAMA/2026/Real_acct_owner.zip", unzip_to: Real_acct_owner}
+  - {url: "https://download.hcad.org/data/CAMA/2026/Real_building_land.zip", unzip_to: Real_building_land}
+  - {url: "https://download.hcad.org/data/GIS/Parcels.zip", unzip_to: Parcels}
+
+# Local codes -> the tags trade rules use. Texas state class codes are statewide; building
+# type and land use codes are HCAD's own (Code_description_real.zip describes them all).
+codes:
+  state_class:
+    A1: single_family
+    A2: single_family
+    A4: single_family
+    B1: multifamily
+    F1: commercial
+    F2: industrial
+    J1: utility
+    X1: government_exempt
+    X3: religious_exempt
+    X4: cemetery_exempt
+    XJ: private_school_exempt
+    XR: district_exempt
+    X2: charitable_exempt
+    XG: charitable_exempt
+    XV: charitable_exempt
+    XU: charitable_exempt
+    XI: charitable_exempt
+    XF: charitable_exempt
+    Z1: condo_unit
+    Z2: condo_unit
+    Z3: condo_unit
+    Z4: condo_unit
+    Z5: condo_unit
+  building_type:
+    "4209": apartment
+    "4211": apartment
+    "4212": apartment
+    "4214": apartment
+    "4221": apartment
+    "4222": apartment
+    "4299": apartment
+    "4316": nursing_home
+    "4317": retirement_home
+    "4389": country_club_golf
+    "4387": country_club
+    "4620": religious_building
+    "4640": hospital
+    "4940": hospital
+    "4352": hospital
+    "4349": medical_office
+    "4357": medical_office
+    "4360": medical_office
+    "4612": school
+    "4613": school
+    "4313": school
+    "4311": hotel
+    "4314": hotel
+    "4315": hotel
+    "4320": hotel
+    "4353": office
+    "4354": office
+    "4359": office
+    "4405": office
+    "4497": office
+    "4340": retail
+    "4341": retail
+    "4342": retail
+    "4343": retail
+    "4344": retail
+    "4345": retail
+    "4346": retail
+    "4347": retail
+    "4374": retail
+    "4378": retail
+    "4361": funeral_home
+    "4380": industrial_building
+    "4394": industrial_building
+    "4395": industrial_building
+    "4397": industrial_building
+    "4398": industrial_building
+    "4399": industrial_building
+    "4401": industrial_building
+    "4403": industrial_building
+    "4411": industrial_building
+    "4412": industrial_building
+    "4413": industrial_building
+    "4414": industrial_building
+    "4415": industrial_building
+    "4416": industrial_building
+    "4417": industrial_building
+    "4418": industrial_building
+    "4419": industrial_building
+    "4420": industrial_building
+    "4421": industrial_building
+    "4422": industrial_building
+    "4424": industrial_building
+    "4425": industrial_building
+    "4426": industrial_building
+    "4427": industrial_building
+    "4428": industrial_building
+    "4491": industrial_building
+  land_use:
+    "2004": open_space
+    "4930": park_golf
+    "4940": hospital_land
+    "4730": utility_district_land
+    "4733": utility_district_land
+    "4735": utility_district_land
+    "4737": utility_district_land
+    "3100": improvements_only
+    "3200": improvements_only
+    "3300": improvements_only
+    "3400": improvements_only
+
+# Local names added to the trade's keywords
+keyword_additions:
+  PUBLIC: "PORT OF HOUSTON|UNIVERSITY OF HOUSTON|TEXAS SOUTHERN UNIV|TEXAS A ?& ?M|UNIVERSITY OF TEXAS|LONE STAR COLLEGE|SAN JACINTO COLLEGE|HOUSTON COMMUNITY COLLEGE|TEXAS DEPARTMENT|TX DEPT|STATE OF TX"
+  HOSPITAL: "MEMORIAL HERMANN|HOUSTON METHODIST|\\bST\\.? LUKE|TEXAS CHILDREN|MD ANDERSON|BAYLOR (COLLEGE OF MEDICINE|ST)|\\bHCA\\b|KELSEY"
+  # Texas property-tax consultants appear as care-of on thousands of accounts; they never buy grounds work
+  TAX_AGENT: "\\bRYAN\\b|POPP HUTCHESON|O ?CONNOR|MARVIN POER|KE ANDREWS|DUCHARME|PARADIGM|TPTS|NORTH AMERICAN PROPERTY TAX|INVOKE"
+
+# Texas HHSC licensed long-term care directories: confirm senior living and name the operator
+licensed_facilities:
+  segment: senior
+  keep_segments: [mud]
+  source: Texas HHSC long-term care provider directories (apps.hhs.texas.gov)
+  files:
+    - {url: "https://apps.hhs.texas.gov/providers/directories/al.xlsx", path: hhsc/al.xlsx, header_row: 1, filters: {County: HARRIS}}
+    - {url: "https://apps.hhs.texas.gov/providers/directories/NF.xlsx", path: hhsc/NF.xlsx, header_row: 1, filters: {County: HARRIS}}
+  columns: {name: Facility Name, latlon: Geo Location, operator: Management Company, phone: Facility Phone Number}
+
+# The region's defining storms (see storms.py for the methods). Swap these for each region:
+# Central Texas might use the February 2021 freeze; Oklahoma a tornado outbreak.
+storm_events:
+  - name: Hurricane Beryl
+    start: 2024-07-08T00:00Z
+    end: 2024-07-09T06:00Z
+    method: gust_field
+    weight: 0.40
+    gust_low: 60
+    gust_high: 85
+    hook_mph: 76
+  - name: May 2024 derecho
+    start: 2024-05-16T18:00Z
+    end: 2024-05-17T06:00Z
+    method: nearest_report
+    weight: 0.35
+    full_km: 2
+    zero_km: 15
+  - name: Last 12 months
+    days: 365
+    method: recent
+    weight: 0.25
+
+sources:
+  - {source: HCAD certified roll and GIS parcels, url: "https://download.hcad.org/", used_for: "owners, mailing / care-of lines, acreage, land and building codes, parcel outlines"}
+  - {source: Texas HHSC long-term care directories, url: "https://apps.hhs.texas.gov/providers/directories/", used_for: senior living operators and facility phones}
+  - {source: TCEQ water district records, url: "https://www14.tceq.texas.gov/iwud/", used_for: "district operators (manual research, contacts step)"}
