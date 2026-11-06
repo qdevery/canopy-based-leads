@@ -8,8 +8,6 @@ It runs on free public data. Contacts are optional and sit behind a credit gate.
 Built for field-service companies: tree care out of the box; landscaping, roofing, paving or
 irrigation with one YAML file.
 
-**📖 Setup and how-to guide: https://qdevery.github.io/canopy-based-leads/**
-
 ```
 county tax roll ─► classify ─► canopy ─► who buys ─► storms ─► score ─► workbook, call sheet, Clay import
  (owners, codes,    8 segments   30 m tree   mgmt firm,   NWS damage   0–100 +     + contacts (credit gate)
