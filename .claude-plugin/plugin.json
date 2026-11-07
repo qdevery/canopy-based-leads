@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "description": "Build a ranked B2B account list for a field-service company from free county tax-roll, tree-canopy and storm data, then find business contacts with a credit gate and guardrails.",
   "author": { "name": "qdevery", "url": "https://github.com/qdevery" },
+  "homepage": "https://apps.fringelines.io/canopy-based-leads/",
   "repository": "https://github.com/qdevery/canopy-based-leads",
   "license": "MIT",
   "keywords": ["gtm", "lead-generation", "prospecting", "public-data", "tree-care", "field-service", "apollo", "clay"]
